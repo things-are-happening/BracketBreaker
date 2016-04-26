@@ -13,4 +13,4 @@ var match = new Schema({
 },{timestamp: true, versionKey: false})
 
 
-module.exports = mongoose.model(`Match`, match)
+module.exports = mongoose.model('Match', match)
