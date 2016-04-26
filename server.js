@@ -19,7 +19,6 @@ app.use(cors());
 app.use(express.static(__dirname + '/src/client'));
 
 //authentication
-
 // var passport = require('passport');
 // var session = require('express-session');
 // var GoogleStrategy = require('passport-google-oauth').OAuth2Stragety;
