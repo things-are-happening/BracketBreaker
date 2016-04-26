@@ -1,0 +1,6 @@
+node_modules/
+build/
+**/*/secrets.*
+npm-*.**
+.DS_STORE
+.gitignore
