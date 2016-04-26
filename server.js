@@ -40,6 +40,16 @@ app.use(express.static(__dirname + '/src/client'));
 // 	done(null, user);
 // })
 
+// passport.use(new LocalAPIKeyStrategy(
+//   function(apikey, done) {
+//     User.findOne({ apikey: apikey }, function (err, user) {
+//       if (err) { return done(err); }
+//       if (!user) { return done(null, false); }
+//       return done(null, user);
+//     });
+//   }
+// ));
+
 //endpoints
 app.get('/api/tournament/:id', tournament.getOne);
 app.post('/api/tournament', tournament.post);
@@ -59,16 +69,7 @@ app.delete('/api/team/:id', team.delete);
 //////
 app.post('api/login', user.post);
 
-//authentication
-// passport.use(new LocalAPIKeyStrategy(
-//   function(apikey, done) {
-//     User.findOne({ apikey: apikey }, function (err, user) {
-//       if (err) { return done(err); }
-//       if (!user) { return done(null, false); }
-//       return done(null, user);
-//     });
-//   }
-// ));
+
 
 //connection
 app.listen(port, function() {
