@@ -25,7 +25,8 @@ var tournament = new Schema({
 	owner: {
 		type: Schema.Types.ObjectId,
 		ref: 'User'
-	}
+	},
+	location: String
 })
 
 module.exports = mongoose.model('Tournament', tournament)
