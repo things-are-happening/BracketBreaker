@@ -1,13 +1,24 @@
 var Tournament = require('./../models/Tournament')
 //post query:
 var handlePost = function(req, res) {
-	Tournament.create(req.body, function(error, response) {
-		console.log("response", response);
-		if(error) {
-			res.status(500).json(error)
-		} else {
-			res.send(response)
+	console.log(req.body);
+    new Tournament(req.body).save(function(error, response) {
+        console.log("response", response);
+        console.log("error", error);
+        if(error) {
+            res.status(500).json(error)
+        } else {
+            res.send(response)
+        }
+    })
+}
+
+var getAll = function(req, res){
+	Tournament.find().exec(function(err, response){
+		if (err) {
+			return res.status(500).send(err);
 		}
+		res.send(response)
 	})
 }
 
@@ -46,6 +57,7 @@ var handleDelete = function(req, res) {
 
 
 module.exports = {
+	get: getAll,
 	getOne: handleGetOne,
 	post: handlePost,
 	put: handlePut,
