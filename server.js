@@ -54,6 +54,7 @@ app.use(express.static(__dirname + '/src/client'));
 app.get('/api/tournament/:id', tournament.getOne);
 app.post('/api/tournament', tournament.post);
 app.put('/api/tournament', tournament.put);
+app.delete('/api/tounament/:id', tournament.delete);
 //////
 app.get('/api/match', match.getAll);
 app.get('/api/match:id', match.getOne);

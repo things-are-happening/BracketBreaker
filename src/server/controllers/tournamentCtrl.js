@@ -34,10 +34,20 @@ var handlePut = function(req, res) {
 	})
 }
 /////
+var handleDelete = function(req, res) {
+	Tournament.findByIdAndRemove(req.params.id, function(error, response) {
+		if(error) {
+			res.status(500).json(error)
+		} else {
+			res.json(response)
+		}
+	})
+}
 
 
 module.exports = {
 	getOne: handleGetOne,
 	post: handlePost,
-	put: handlePut
+	put: handlePut,
+	delete: handleDelete
 };
