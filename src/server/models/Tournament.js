@@ -7,15 +7,10 @@ var tournament = new Schema({
 		type: String,
 		required: true
 	},
-	Teams: Number,
+	teams: Number,
 	name: {
 		type: String,
 		required: true
-	},
-	tournamentId: {
-		type: String,
-		required: true,
-		unique: true
 	},
 	match: {
 		type: Schema.Types.ObjectId,

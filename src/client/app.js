@@ -3,6 +3,17 @@ app.config(function($stateProvider, $urlRouterProvider){
 
   // $urlRouterProvider.otherwise('/dashboard');
  	$stateProvider
+
+    .state('home', {
+      url: '/',
+      views: {
+        "content": {
+          controller: 'dashboardCtrl',
+          templateUrl: './templates/home/home.html'
+        }
+      }
+    })
+    
     .state('dashboard', {
       url: '/dashboard',
       views: {

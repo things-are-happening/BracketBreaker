@@ -7,11 +7,6 @@ var teamSchema = new Schema({
 		type: String,
 	 	required: true
 	},
-	teamId: {
-		type: String,
-		required: true,
-		unique: true
-	},
 	players: Array,
 	owner: {
 		type: Schema.Types.ObjectId,
