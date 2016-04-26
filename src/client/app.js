@@ -21,6 +21,11 @@ app.config(function($stateProvider, $urlRouterProvider){
           controller: 'dashboardCtrl',
           templateUrl: './templates/user/dashboard.html'
         }
+      },
+      resolve: {
+        tournamentsList: function(tournamentService){
+          return tournamentService.getTournaments();
+        }
       }
     })
 
