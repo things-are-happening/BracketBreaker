@@ -4,8 +4,10 @@ app.controller("addTournamentCtrl", function($scope, tournamentService, $state){
 	$scope.tournamentSize = [2, 4, 8, 16, 32]
 
 	$scope.generateBracket = function(tournament){
-		tournamentService.generateBracketservice(tournament).then(function(response){
-
+		console.log(tournament)
+		tournamentService.generateBracketservice(tournament).then(function(response){		
+			$scope.tournament = null
+			console.log(tournament)
 			$state.go('dashboard')
 		})
 	}

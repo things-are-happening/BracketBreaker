@@ -19,6 +19,7 @@ app.use(express.static(__dirname + '/src/client'));
 
 //endpoints
 app.get('/api/tournament/:id', tournament.getOne);
+app.get('/api/tournament', tournament.get);
 app.post('/api/tournament', tournament.post);
 app.put('/api/tournament', tournament.put);
 //////
