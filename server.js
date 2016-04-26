@@ -6,8 +6,6 @@ var express = require('express'),
 	morgan = require('morgan'),
 	port = 9000,
 	mongoUri = 'mongodb://localhost:27017/tournament';
-var passport = require('passport');
-var session = require('express-session');
 
 var tournament = require('./src/server/controllers/tournamentCtrl');
 var match = require('./src/server/controllers/matchCtrl');
@@ -21,17 +19,27 @@ app.use(cors());
 app.use(express.static(__dirname + '/src/client'));
 
 //authentication
-// app.use(session({secret:}))
 
-app.use(passport.initialize());
-app.use(passport.session());
+// var passport = require('passport');
+// var session = require('express-session');
+// var GoogleStrategy = require('passport-google-oauth').OAuth2Stragety;
 
-passport.serializeUser(function(user, done) {
-	done(null, user);
-})
-passport.deserializeUser(function(user, done) {
-	done(null, user);
-})
+// passport.use(new GoogleStrategy({
+// 	clietnId: '',
+// 	clientSecret: '',
+// 	callbackUrl: ''
+// }))
+// // app.use(session({secret:}))
+
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+// passport.serializeUser(function(user, done) {
+// 	done(null, user);
+// })
+// passport.deserializeUser(function(user, done) {
+// 	done(null, user);
+// })
 
 //endpoints
 app.get('/api/tournament/:id', tournament.getOne);

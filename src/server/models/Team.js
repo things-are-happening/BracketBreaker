@@ -16,6 +16,8 @@ var teamSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: `Tournament`
 	}]
-}, {timestamp: true, versionKey: false})
+})
 
 module.exports =  mongoose.model('Team', teamSchema)
+
+// , {timestamp: true, versionKey: false}
