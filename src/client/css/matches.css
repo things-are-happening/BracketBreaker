@@ -1,5 +1,5 @@
 .view-body{
-	background: white;
+	background: #F1F2F3;
 }
 
 .dashboardBodyMain{
@@ -17,17 +17,16 @@
 	margin: 1%;
 	border-radius: .3em;
 	padding-top: 30px;
-	overflow: scroll;
 	box-shadow: 0px 6px 6px rgba(0, 0, 0, .5);
 }
-	
+
 .fa-plus{
-	color: white;
+	color: #F1F2F3;
 }
 
 .newmatch{
 	border: 1px solid #F1F2F3;
-	background: white;
+	background: #F1F2F3;
 	width: 31.5%;
 	height: 275px;
 	margin: 10px;
@@ -45,4 +44,4 @@
 	margin-bottom: 10px;
 	background: transparent;
 	box-shadow: outset 0 0 .5em;
-}	
+}
