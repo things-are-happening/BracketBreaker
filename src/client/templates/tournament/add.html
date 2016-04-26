@@ -2,7 +2,7 @@
 	<!-- <div> -->
 		<form class='newTournamentForm center-text row flex direction-column'>
 			<h1>
-				<input placeholder='Add Tournament Title' class='addTournamentTitle center-text' onblur='this.placeholder="Add Tournament Title"' onfocus='this.placeholder = ""' ng-model='tournamentTitle' maxlength='30'/>
+				<input placeholder='Add Tournament Title' class='addTournamentTitle center-text' onblur='this.placeholder="Add Tournament Title"' onfocus='this.placeholder = ""' ng-model='tournament.name' maxlength='30'/>
 			</h1>
 			<div class='form-group flex space-around'>
 				<div>
@@ -15,13 +15,13 @@
 				</div>
 			</div>
 			<div class='form-group'>
-				<select class='form-control' ng-model='tournament.type'>
+				<select class='form-control' ng-model='tournament.tournamentId'>
 					<option value='' default selected> Tournament Type </option>
 					<option ng-repeat='type in tournamentType' value='{{type.id}}'> {{type.type}} </option>
 				</select>
 			</div>
 			<div class='form-group'>
-				<select class='form-control' ng-model='tournament.game'>
+				<select class='form-control' ng-model='tournament.sport'>
 					<option value='' default selected> Game Type </option>
 					<option ng-repeat='type in gameType' value='{{type.id}}'> {{type.type}} </option>
 				</select>

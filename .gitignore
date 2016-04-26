@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 node_modules/
 build/
 **/*/secrets.*
 npm-*.**
 .DS_STORE
 .gitignore
+=======
+node_modules
+>>>>>>> 8a9aae2d5b5409727d5180bd086494ef109d1575
