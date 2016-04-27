@@ -7,6 +7,9 @@ var tournament = new Schema({
 		type: String,
 		required: true
 	},
+	location: {
+		type: String
+	},
 	start: Date,
 	end: Date,
 	type: {
