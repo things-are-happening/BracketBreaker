@@ -4,6 +4,18 @@ var Schema = mongoose.Schema;
 
 var tournament = new Schema({
 	sport: {
+<<<<<<< HEAD
+
+        type: String,
+        required: true
+    },
+    start: Date,
+    end: Date,
+    type: {
+        type: String,
+        required: true
+    },
+=======
 		type: String,
 		required: true
 	},
@@ -16,6 +28,7 @@ var tournament = new Schema({
 		type: String,
 		required: true
 	},
+>>>>>>> 7819a5c58dca100ce6972d8ceb8237f87bc34797
 	teams: Number,
 	name: {
 		type: String,
@@ -28,9 +41,8 @@ var tournament = new Schema({
 	owner: {
 		type: Schema.Types.ObjectId,
 		ref: 'User'
-	}
-}
-// , {timestamp: true, versionKey: false}
-)
+	},
+	location: String
+})
 
 module.exports = mongoose.model('Tournament', tournament)

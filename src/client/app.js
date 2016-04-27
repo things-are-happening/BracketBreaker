@@ -54,12 +54,18 @@ app.config(function($stateProvider, $urlRouterProvider){
     })
 
     .state('viewTournament', {
-      url: '/view',
+      url: '/view/:id',
       views: {
         "content@" : {
           controller: 'viewTournamentCtrl',
           templateUrl: './templates/tournament/view.html'
         }
+      },
+      resolve: {
+        function(tournamentService, $stateParams){
+          return tournamentService.getTournamentById($stateParams.id);
+        }
       }
     })
 })
+
