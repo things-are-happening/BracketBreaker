@@ -3,7 +3,7 @@ var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
 var match = new Schema({
-	// round: Array,
+	round: Array
 	// score: Number,
 	// date: Date,
 	// teams:{

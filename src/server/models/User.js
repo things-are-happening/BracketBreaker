@@ -5,18 +5,35 @@ var Schema = mongoose.Schema
 var userSchema = new Schema({
 	name: {
 		type: String,
-	 	required: true
-	},
+		required: true
+	}
 	userName: {
 		type: String,
 		required: true,
 		unique: true
 	},
+	email: { 
+		type: String, 
+		unique: true 
+	},
 	password: {
 		type: String,
 		required: true
 	},
-	
-}, {timestamp: true, versionKey: false})
+	passwordResetToken: String,
+	passwordResetExpires: Date,
 
-module.exports =  mongoose.model('User', userSchema)
+	google: String,
+	facebook: String,
+
+	
+
+	profile: {
+    name: { type: String, default: '' },
+    gender: { type: String, default: '' },
+    location: { type: String, default: '' },
+    website: { type: String, default: '' },
+    picture: { type: String, default: '' }
+  	}
+
+}, {timestamp: true, versionKey: false});

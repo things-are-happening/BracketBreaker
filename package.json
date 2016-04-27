@@ -17,13 +17,17 @@
   },
   "homepage": "https://github.com/things-are-happening/lets-do-this#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
     "cors": "^2.7.1",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
+    "instagram-node": "^0.5.8",
+    "lodash": "^4.11.1",
     "mongoose": "^4.4.13",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
+    "passport-facebook": "^2.1.0",
     "passport-google-oauth": "^1.0.0",
     "session": "^0.1.0"
   },

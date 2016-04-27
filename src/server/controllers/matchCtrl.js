@@ -56,10 +56,27 @@ var handleDelete = function(req, res) {
 	})
 }
 /////
+var handlePostMatchesById = function(req, res){
+        new Match(req.body).save(function(err, response) {
+            if (err) {
+                return res.status(500).send(err);
+            }
+            Tournament.findById(req.params.id, function(err, response){
+                if (err) {
+                    return res.status(500).send(err);
+                }
+                current.matches.push(response);
+                tournament.save();
+                res.send(tournament);
+            })
+        })
+    }
+/////
 module.exports = {
 	getAll: handleGetAll,
 	getOne: handleGetOne,
 	post: handlePost,
 	put: handlePut,
-	delete: handleDelete
+	delete: handleDelete,
+	postMatchesById: handlePostMatchesById
 };
