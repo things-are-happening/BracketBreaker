@@ -3,7 +3,7 @@
 		<form class='newTournamentForm center-text row flex direction-column'>
 			<h1>
 				<input placeholder='Add Tournament Title' class='addTournamentTitle center-text' onblur='this.placeholder="Add Tournament Title"' onfocus='this.placeholder = ""' ng-model='tournament.name' maxlength='30'/>
-			</h1>
+			</h1>			
 			<div class='form-group flex space-around'>
 				<div>
 					<label> Start Date </label>
@@ -15,7 +15,10 @@
 				</div>
 			</div>
 			<div class='form-group'>
-				<select class='form-control' ng-model='tournament.type'>
+				<input placeholder='Tournament Location' class='form-control' onblur='this.placeholder="Tournament Location"' onfocus='this.placeholder = ""' ng-model='tournament.location' maxlength='30'/>
+			</div>
+			<div class='form-group'>
+				<select class='form-control center-text' ng-model='tournament.type'>
 					<option value='' default selected> Tournament Type </option>
 					<option ng-repeat='type in tournamentType' value='{{type.type}}'> {{type.type}} </option>
 				</select>
@@ -32,6 +35,7 @@
 					<option ng-repeat='size in tournamentSize'> {{size}} </option>
 				</select>
 			</div>
+			<br>
 			<button class='btn btn-default' type='submit' ng-click='generateBracket(tournament)'> Lets gooooooo </button>
 		</form>
 </section>
