@@ -34,13 +34,15 @@
 					<option ng-repeat='size in tournamentSize'> {{size}} </option>
 				</select>				
 			</div>
-			<!-- <form id='variableTeams'>
-    		<label for="teamNames">Team:</label><input type="text" name="teamNames" />
-    		<button id="employee_fields_generate">Generate Fields!</button>
-    		<div id="employee_fields">
-    		</div>
-			</form> -->
+			<div ng-if='tournament.teams == 8'>
+				<form>
+					<label>{{tournament.teams}}for 2</label>
+					<p>sakjdfhfs</p>
+					<span>asdfkjs</span>
+					<input/>
+				</form>
+			</div>
 			<br>
-			<button class='btn btn-default' type='submit' ng-click='generateBracket(tournament)'> Lets gooooooo </button>
+			<button class='btn btn-default form-control' type='submit' ng-click='generateBracket(tournament)'> Lets gooooooo </button>
 		</form>
 </section>
