@@ -33,7 +33,10 @@
 				<select class='form-control' ng-model='tournament.teams'>
 					<option value='' default selected> Number of Participants </option>
 					<option ng-repeat='size in tournamentSize'> {{size}} </option>
-				</select>
+				</select>				
+			</div>
+			<div>
+					<textarea placeholder='lol' class='form-control'></textarea>
 			</div>
 			<br>
 			<button class='btn btn-default' type='submit' ng-click='generateBracket(tournament)'> Lets gooooooo </button>
