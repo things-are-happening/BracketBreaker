@@ -2,13 +2,13 @@
 		<form class='newTournamentForm center-text row flex direction-column'>
 			<h1>
 				<input placeholder='Add Tournament Title' class='addTournamentTitle center-text' onblur='this.placeholder="Add Tournament Title"' onfocus='this.placeholder = ""' ng-model='tournament.name' maxlength='30'/>
-			</h1>			
+			</h1>
 			<div class='form-group flex space-around'>
 				<div>
 					<label> Start Date </label>
 					<input type='date' ng-model='tournament.start'/>
 				</div>
-				<div>		
+				<div>
 					<label> End Date </label>
 					<input type='date' ng-model='tournament.end'/>
 				</div>
@@ -32,17 +32,96 @@
 				<select class='form-control' ng-model='tournament.teams'>
 					<option value='' default selected> Number of Participants </option>
 					<option ng-repeat='size in tournamentSize'> {{size}} </option>
-				</select>				
+				</select>
 			</div>
-			<div ng-if='tournament.teams == 8'>
-				<form>
-					<label>{{tournament.teams}}for 2</label>
-					<p>sakjdfhfs</p>
-					<span>asdfkjs</span>
-					<input/>
+			<div ng-if="tournament.teams == 2">
+				<form class="" method="post" ng-model="team.names">
+					<label> Enter participants: </label>
+					<input type="text">
+					<input type="text">
+				</form>
+			</div>
+			<div ng-if="tournament.teams == 4">
+				<form class="" action="index.html" method="post">
+					<label> Enter participants: </label>
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+				</form>
+			</div>
+			<div ng-if="tournament.teams == 8">
+				<form class="" action="index.html" method="post">
+					<label> Enter participants: </label>
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+				</form>
+			</div>
+			<div ng-if="tournament.teams == 16">
+				<form class="" action="index.html" method="post">
+					<label> Enter participants: </label>
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+				</form>
+			</div>
+			<div ng-if="tournament.teams == 32">
+				<form class="" action="index.html" method="post">
+					<label> Enter participants: </label>
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
 				</form>
 			</div>
 			<br>
-			<button class='btn btn-default form-control' type='submit' ng-click='generateBracket(tournament)'> Lets gooooooo </button>
+			<button class='btn btn-default' type='submit' ng-click='generateBracket(tournament)'> Lets gooooooo </button>
 		</form>
 </section>

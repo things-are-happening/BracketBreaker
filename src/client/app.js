@@ -13,7 +13,7 @@ app.config(function($stateProvider, $urlRouterProvider){
         }
       }
     })
-    
+
     .state('dashboard', {
       url: '/dashboard',
       views: {
