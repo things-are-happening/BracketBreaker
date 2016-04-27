@@ -1,5 +1,4 @@
 <section class='addBodyMain container-fluid'>
-	<!-- <div> -->
 		<form class='newTournamentForm center-text row flex direction-column'>
 			<h1>
 				<input placeholder='Add Tournament Title' class='addTournamentTitle center-text' onblur='this.placeholder="Add Tournament Title"' onfocus='this.placeholder = ""' ng-model='tournament.name' maxlength='30'/>
@@ -35,9 +34,12 @@
 					<option ng-repeat='size in tournamentSize'> {{size}} </option>
 				</select>				
 			</div>
-			<div>
-					<textarea placeholder='lol' class='form-control'></textarea>
-			</div>
+			<!-- <form id='variableTeams'>
+    		<label for="teamNames">Team:</label><input type="text" name="teamNames" />
+    		<button id="employee_fields_generate">Generate Fields!</button>
+    		<div id="employee_fields">
+    		</div>
+			</form> -->
 			<br>
 			<button class='btn btn-default' type='submit' ng-click='generateBracket(tournament)'> Lets gooooooo </button>
 		</form>
