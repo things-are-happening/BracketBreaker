@@ -12,7 +12,7 @@
 					</div>
 				</a>
 			</div>
-			<a ui-sref='viewTournament' ng-repeat='tournament in tournaments | filter:search' class='match-link'>
+			<a ng-repeat='tournament in tournaments | filter:search' class='match-link' ui-sref='viewTournament({id:tournament._id})'>
 				<div class='match col-md-6 col-xs-6'>
 					<div class='match-body flex direction-column vertical-center'>
 						<h2 class='tournament-panel-h1'> {{tournament.name}} </h2>

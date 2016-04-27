@@ -10,4 +10,7 @@ app.service("tournamentService", function($q, $http){
 		})
 		return dfd.promise;
 	}
+	this.getTournamentById = function(id){
+		return $http.get('/api/tournament/'+id)
+	}
 })
