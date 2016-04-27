@@ -7,7 +7,7 @@ app.controller("viewTournamentCtrl", function($scope){
 		date: "4/19/2016",
 		time: "5:30 pm",
 		location: "Brazil"
-		
+
 	},
 	{
 		teamOne: "New York Yankees",
@@ -144,6 +144,8 @@ app.controller("viewTournamentCtrl", function($scope){
 		time: "5:30 pm",
 		location: "Brazil"
 	}]
+
+	$scope.matches = fakeMatchData
+
 	
-	$scope.matches = fakeMatchData 
 })
