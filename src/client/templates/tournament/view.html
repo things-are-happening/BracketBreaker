@@ -3,19 +3,19 @@
 <h3 class='form group flex space-around'>{{tournament.type}}</h3>
 	<div class="flex space-between container">
 		<ul class="nav nav-tabs" role="tablist">
-			<li class="bracketTab active">
+			<li class="bracketTab" id="round1tab">
 				<a href="#round1" data-toggle="tab" aria-controls="round1" role="tab" target="_self"> Round 1 </a>
 			</li>
-			<li class="bracketTab">
+			<li class="bracketTab" id="round2tab">
 				<a href="#round2" data-toggle="tab" aria-controls="round2" role="tab" target="_self"> Round 2 </a>
 			</li>
-			<li class="bracketTab">
+			<li class="bracketTab" id="round3tab">
 				<a href="#round3" data-toggle="tab" aria-controls="round3" role="tab" target="_self"> Quarter-finals </a>
 			</li>
-			<li class="bracketTab">
+			<li class="bracketTab" id="round4tab">
 				<a href="#round4" data-toggle="tab" aria-controls="round4" role="tab" target="_self"> Semi-finals </a>
 			</li>
-			<li class="bracketTab">
+			<li class="bracketTab" id="round5tab">
 				<a href="#round5" data-toggle="tab" aria-controls="round5" role="tab" target="_self"> Finals </a>
 			</li>
 		</ul>
@@ -23,7 +23,7 @@
 </div>
 
 <div class="tab-content">
-	<div class="container-fluid view-body tab-pane active in fade" id="round1" role="tabpanel" aria-labelledby="round1-tab">
+	<div class="container-fluid view-body tab-pane in fade" id="round1" role="tabpanel" aria-labelledby="round1-tab">
 		<div class="col-md-3 col-sm-6" ng-repeat="match in matches">
 			<a data-toggle='modal' data-target='#testModal'>
 				<div class="match-panel">
@@ -107,8 +107,8 @@
 
 						<div class="flex direction-row space-between">
 							<h4> {{match.teamOne}}: ASDKJAFKJAFNJK</h4>
-							<div class="scorePosition">
-								<h4> {{match.teamOneScore}} NASDKJLNADKJNAFKJ</h4>
+							<div class="Position">
+								<h4> {{match.teamOne}} NASDKJLNADKJNAFKJ</h4>
 							</div>
 						</div>
 
@@ -136,8 +136,8 @@
 
 						<div class="flex direction-row space-between">
 							<h4> {{match.teamOne}}: </h4>
-							<div class="scorePosition">
-								<h4> {{match.teamOneScore}} </h4>
+							<div class="Position">
+								<h4> {{match.teamOne}} </h4>
 							</div>
 						</div>
 
@@ -165,8 +165,8 @@
 
 						<div class="flex direction-row space-between">
 							<h4> {{match.teamOne}}: </h4>
-							<div class="scorePosition">
-								<h4> {{match.teamOneScore}} </h4>
+							<div class="Position">
+								<h4> {{match.teamOne}} </h4>
 							</div>
 						</div>
 

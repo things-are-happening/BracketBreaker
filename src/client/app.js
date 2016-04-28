@@ -1,7 +1,7 @@
 var app = angular.module("tournament", ['ui.router']);
 app.config(function($stateProvider, $urlRouterProvider){
 
-  $urlRouterProvider.otherwise('/dashboard');
+  $urlRouterProvider.otherwise('/');
  	$stateProvider
 
     .state('home', {
