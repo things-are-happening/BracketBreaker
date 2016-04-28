@@ -21,6 +21,9 @@ var tournament = new Schema({
 		type: String,
 		required: true
 	},
+	teamNames:{
+		type: Array
+	},
 	match: {
 		type: Schema.Types.ObjectId,
 		ref: 'Match'

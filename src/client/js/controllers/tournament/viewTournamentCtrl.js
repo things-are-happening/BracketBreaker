@@ -1,4 +1,6 @@
 app.controller("viewTournamentCtrl", function($scope, currentTourney){
 	$scope.tournament = currentTourney.data
-	console.log(currentTourney)
+	$scope.matches = currentTourney.data.teamName;
+
+	console.log($scope.matches)
 })
