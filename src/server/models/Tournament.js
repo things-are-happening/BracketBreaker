@@ -7,6 +7,9 @@ var tournament = new Schema({
 		type: String,
 		required: true
 	},
+	location: {
+		type: String
+	},
 	start: Date,
 	end: Date,
 	type: {
@@ -18,6 +21,9 @@ var tournament = new Schema({
 		type: String,
 		required: true
 	},
+	teamNames:{
+		type: Array
+	},
 	match: {
 		type: Schema.Types.ObjectId,
 		ref: 'Match'
@@ -27,7 +33,7 @@ var tournament = new Schema({
 		ref: 'User'
 	}
 }
-// , {timestamp: true, versionKey: false}
+, {timestamp: true, versionKey: false}
 )
 
 module.exports = mongoose.model('Tournament', tournament)

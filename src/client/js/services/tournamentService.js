@@ -1,8 +1,8 @@
 app.service("tournamentService", function($q, $http){
 	this.generateBracketservice = function(tournament){
-		console.log(tournament)
 		return $http.post('/api/tournament', tournament)
 	}
+
 	this.getTournaments = function(){
 		var dfd = $q.defer();
 		$http.get('/api/tournament').then(function(response){
@@ -10,4 +10,17 @@ app.service("tournamentService", function($q, $http){
 		})
 		return dfd.promise;
 	}
+
+	this.getTournamentById = function(id){
+		return $http.get('/api/tournament/'+id)
+	}
+
+	// this.getMatches = function(id){
+	// 	var deferred = $q.defer();
+	// 	$http.get("/api/tournament/" + id)
+	// 		.then(function(response){								
+	// 			deferred.resolve(response.data.match);
+	// 		})
+	// 	return deferred.promise;
+	// }
 })

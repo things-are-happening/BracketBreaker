@@ -1,149 +1,42 @@
-app.controller("viewTournamentCtrl", function($scope){
-	var fakeMatchData = [{
-		teamOne: "Team Solomid",
-		teamTwo: "Cloud9",
-		teamOneScore: 10,
-		teamTwoScore: 9,
-		date: "4/19/2016",
-		time: "5:30 pm",
-		location: "Brazil"
-		
-	},
-	{
-		teamOne: "New York Yankees",
-		teamTwo: "Boston Red Sox",
-		teamOneScore: 1,
-		teamTwoScore: 2,
-		date: "4/19/2016",
-		time: "5:30 pm",
-		location: "Brazil"
-	},
-	{
-		teamOne: "Los Angeles Lakers",
-		teamTwo: "Dallas Mavericks",
-		teamOneScore: 1,
-		teamTwoScore: 2,
-		date: "4/19/2016",
-		time: "5:30 pm",
-		location: "Brazil"
-	},
-	{
-		teamOne: "Counter-Logic Gaming",
-		teamTwo: "Team Liquid",
-		teamOneScore: 110,
-		teamTwoScore: 2,
-		date: "4/19/2016",
-		time: "5:30 pm",
-		location: "Brazil"
-	},
-	{
-		teamOne: "DPRK",
-		teamTwo: "ROK",
-		teamOneScore: 0,
-		teamTwoScore: 10,
-		date: "4/19/2016",
-		time: "5:30 pm",
-		location: "Brazil"
-	},
-	{
-		teamOne: "Fnatic",
-		teamTwo: "G2 Gaming",
-		teamOneScore: 10,
-		teamTwoScore: 2,
-		date: "4/19/2016",
-		time: "5:30 pm",
-		location: "Brazil"
-	},
-	{
-		teamOne: "SKT Telecom T1",
-		teamTwo: "KT Rolsters",
-		teamOneScore: 10,
-		teamTwoScore: 2,
-		date: "4/19/2016",
-		time: "5:30 pm",
-		location: "Brazil"
-	},
-	{
-		teamOne: "Joseph",
-		teamTwo: "Daniel",
-		teamOneScore: 10,
-		teamTwoScore: 2,
-		date: "4/19/2016",
-		time: "5:30 pm",
-		location: "Brazil"
-	},
-	{
-		teamOne: "Joseph",
-		teamTwo: "Daniel",
-		teamOneScore: 10,
-		teamTwoScore: 2,
-		date: "4/19/2016",
-		time: "5:30 pm",
-		location: "Brazil"
-	},
-	{
-		teamOne: "Joseph",
-		teamTwo: "Daniel",
-		teamOneScore: 10,
-		teamTwoScore: 2,
-		date: "4/19/2016",
-		time: "5:30 pm",
-		location: "Brazil"
-	},
-	{
-		teamOne: "Joseph",
-		teamTwo: "Daniel",
-		teamOneScore: 10,
-		teamTwoScore: 2,
-		date: "4/19/2016",
-		time: "5:30 pm",
-		location: "Brazil"
-	},
-	{
-		teamOne: "Joseph",
-		teamTwo: "Daniel",
-		teamOneScore: 10,
-		teamTwoScore: 2,
-		date: "4/19/2016",
-		time: "5:30 pm",
-		location: "Brazil"
-	},
-	{
-		teamOne: "Joseph",
-		teamTwo: "Daniel",
-		teamOneScore: 10,
-		teamTwoScore: 2,
-		date: "4/19/2016",
-		time: "5:30 pm",
-		location: "Brazil"
-	},
-	{
-		teamOne: "Joseph",
-		teamTwo: "Daniel",
-		teamOneScore: 10,
-		teamTwoScore: 2,
-		date: "4/19/2016",
-		time: "5:30 pm",
-		location: "Brazil"
-	},
-	{
-		teamOne: "Joseph",
-		teamTwo: "Daniel",
-		teamOneScore: 10,
-		teamTwoScore: 2,
-		date: "4/19/2016",
-		time: "5:30 pm",
-		location: "Brazil"
-	},
-	{
-		teamOne: "Joseph",
-		teamTwo: "Daniel",
-		teamOneScore: 10,
-		teamTwoScore: 2,
-		date: "4/19/2016",
-		time: "5:30 pm",
-		location: "Brazil"
-	}]
-	
-	$scope.matches = fakeMatchData 
+app.controller("viewTournamentCtrl", function($scope, currentTourney){
+	var teams = currentTourney.data.teamNames
+	$scope.tournament = currentTourney.data
+	var matches = [];
+
+	for(var i = 0; i < teams.length; i+=2){
+		var oneMatch = {
+			teamOne: teams[i],
+			teamTwo: teams[i+1]
+		}
+		matches.push(oneMatch)
+	}
+	$scope.matches = matches
+	console.log(matches)
+
+
+	// switch(currentTourney.data.teams){
+	// 	case 2:
+	// 		angular.element(document.getElementById("round5")).addClass("active");
+	// 		angular.element(document.getElementById("round5tab")).addClass("active");
+	// 		break;
+	// 	case 4:
+	// 		angular.element(document.getElementById("round4")).addClass("active");
+	// 		angular.element(document.getElementById("round4tab")).addClass("active");
+	// 		break;
+	// 	case 8:
+	// 		angular.element(document.getElementById("round3")).addClass("active");
+	// 		angular.element(document.getElementById("round3tab")).addClass("active");
+	// 		break;
+	// 	case 16:			
+	// 		angular.element(document.getElementById("round2")).addClass("active");
+	// 		angular.element(document.getElementById("round2tab")).addClass("active");
+	// 		break;
+	// 	case 32:
+	// 		angular.element(document.getElementById("round1")).addClass("active");
+	// 		angular.element(document.getElementById("round1tab")).addClass("active");
+	// 		break;
+	// 	default:
+	// 		console.log("I am Default Scope:",  $scope)
+	// 		break;
+	// }
 })
