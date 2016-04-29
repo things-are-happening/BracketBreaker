@@ -28,8 +28,9 @@ app.use(passport.session());
 app.post('/api/user', user.addUser);
 app.get('/api/user', user.getUser);
 app.get('/api/getCurrentUser', user.getCurrentUser);
-app.post('/api/login', passport.authenticate( 'local-auth', {
-  successRedirect: '/api/getCurrentUser'
+app.post('/api/login', passport.authenticate('local', {
+  successRedirect: '/dashboard',
+	failureRedirect : '/login'
   }
 ));
 app.get('/api/logout', function(req, res, next) {
