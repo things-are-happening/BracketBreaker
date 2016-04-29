@@ -14,6 +14,11 @@ app.controller("viewTournamentCtrl", function($scope, currentTourney){
 	console.log(matches)
 
 
+	$scope.saveMatchDate = function(){
+		
+	}
+
+
 	// switch(currentTourney.data.teams){
 	// 	case 2:
 	// 		angular.element(document.getElementById("round5")).addClass("active");
