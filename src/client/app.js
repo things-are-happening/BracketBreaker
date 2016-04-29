@@ -71,5 +71,25 @@ app.config(function($stateProvider, $urlRouterProvider){
         // }
       }
     })
+
+    .state('login', {
+      url: '/login',
+      views: {
+        "content@" : {
+          controller: 'dashboardCtrl',
+          templateUrl: './templates/tournament/home.html'
+        }
+      }
+    })
+
+    .state('signup', {
+      url: '/signup',
+      views: {
+        "content@" : {
+          controller: 'dashboardCtrl',
+          templateUrl: './templates/tournament/signup.html'
+        }
+      }
+    })
 })
 
