@@ -1,6 +1,7 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var User = require('./../models/User.js');
+var User = require('../models/User.js');
+
 
 passport.use('local-auth', new LocalStrategy(function (username, password, done) {
 
@@ -22,6 +23,8 @@ passport.use('local-auth', new LocalStrategy(function (username, password, done)
       });
   }));
 
+
+//////////saves session////////////
 passport.serializeUser(function(user, done) {
   done(null, user._id);
 });
