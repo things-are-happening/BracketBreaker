@@ -1,5 +1,5 @@
 app.controller("dashboardCtrl", function($scope, tournamentsList, userService, tournamentService){
-	$scope.tournaments = tournamentsList;
+	$scope.tournaments = tournamentsList.data;
 	$scope.signUpUsers = function(user){
 		console.log('shouldnt need this');
 	}
@@ -14,7 +14,7 @@ app.controller("dashboardCtrl", function($scope, tournamentsList, userService, t
 		})
 	};
 	$scope.deleteTournament = function(id){		
-		userService.deleteTournament(id).then(function(response){
+		tournamentService.deleteTournament(id).then(function(response){
 			tournamentService.getTournaments().then(function(response){
 				console.log(response)
 				$scope.tournaments = response;

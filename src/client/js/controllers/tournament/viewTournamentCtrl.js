@@ -2,6 +2,7 @@ app.controller("viewTournamentCtrl", function($scope, currentTourney){
 	var teams = currentTourney.data.teamNames
 	$scope.tournament = currentTourney.data
 	var matches = [];
+	console.log(currentTourney);
 
 	for(var i = 0; i < teams.length; i+=2){
 		var oneMatch = {
