@@ -10,13 +10,27 @@ var express = require('express'),
 var tournament = require('./src/server/controllers/tournamentCtrl');
 var match = require('./src/server/controllers/matchCtrl');
 var team = require('./src/server/controllers/teamCtrl');
+var user = require('./src/server/controllers/userCtrl');
+var passport = require('./src/server/config/passport');
 
 //middleware
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(__dirname + '/src/client'));
-
+app.use(passport.initialize()); // must come before .session()
+app.use(passport.session());
+app.post('/api/user', user.addUser); //makes new user
+app.get('/api/user', user.getUser);
+app.get('/api/getCurrentUser', user.getCurrentUser);
+app.post('/api/login', passport.authenticate( 'local-auth', {
+  successRedirect: '/api/getCurrentUser'
+  }
+));
+app.get('/api/logout', function(req, res, next) {
+  req.logout();
+  return res.status(200).send("logged out");
+});
 //endpoints
 app.get('/api/tournament/:id', tournament.getOne);
 app.get('/api/tournament', tournament.get);
