@@ -14,7 +14,7 @@ app.controller("viewTournamentCtrl", function($scope, currentTourney){
 	console.log(matches)
 
 
-	$scope.saveMatchDate = function(){
+	$scope.saveMatchData = function(){
 		
 	}
 
@@ -32,7 +32,7 @@ app.controller("viewTournamentCtrl", function($scope, currentTourney){
 	// 		angular.element(document.getElementById("round3")).addClass("active");
 	// 		angular.element(document.getElementById("round3tab")).addClass("active");
 	// 		break;
-	// 	case 16:			
+	// 	case 16:
 	// 		angular.element(document.getElementById("round2")).addClass("active");
 	// 		angular.element(document.getElementById("round2tab")).addClass("active");
 	// 		break;
