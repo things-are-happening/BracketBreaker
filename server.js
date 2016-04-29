@@ -33,6 +33,10 @@ app.post('/api/login', passport.authenticate('local', {
 	failureRedirect : '/login'
   }
 ));
+app.post('/signup', passport.authenticate('local', {
+		successRedirect : '/dashboard',
+		failureRedirect : '/signup'
+}));
 app.get('/api/logout', function(req, res, next) {
   req.logout();
   return res.status(200).send("logged out");
