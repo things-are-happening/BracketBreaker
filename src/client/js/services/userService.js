@@ -1,23 +1,23 @@
 app.service('userService', function($http, $state) {
 
-    this.loginUser = function(username, password) {
-      return $http({
-        method: 'POST',
-        url: '/api/login',
-        data: {
-          username: username,
-          password: password
-        }
-      }).then(function(res) {
-        console.log(res);
-        if (res.status === 200) {
-          $state.go('scheduleAdmin');
-        } else {
-          alert('Login Failed');
-        }
-      }, function(err) {
+  this.loginUser = function(username, password) {
+    return $http({
+      method: 'POST',
+      url: '/api/login',
+      data: {
+        username: username,
+        password: password
+      }
+    }).then(function(res) {
+      console.log(res);
+      if (res.status === 200) {
+        $state.go('scheduleAdmin');
+      } else {
         alert('Login Failed');
-        res.send(err);
+      }
+    }, function(err) {
+      alert('Login Failed');
+      res.send(err);
       });
     };
 
