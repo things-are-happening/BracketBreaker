@@ -67,6 +67,7 @@ app.config(function($stateProvider, $urlRouterProvider){
       url: '/login',
       views: {
         "content@" : {
+          controller: 'dashboardCtrl',
           templateUrl: './templates/tournament/home.html'
         }
       }
@@ -76,9 +77,9 @@ app.config(function($stateProvider, $urlRouterProvider){
       url: '/signup',
       views: {
         "content@" : {
+          controller: 'dashboardCtrl',
           templateUrl: './templates/tournament/signup.html'
         }
       }
     })
-
 })
