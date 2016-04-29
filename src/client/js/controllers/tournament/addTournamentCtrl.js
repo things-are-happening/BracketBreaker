@@ -4,10 +4,23 @@ app.controller("addTournamentCtrl", function($scope, tournamentService, $state){
 	$scope.tournamentSize = [2, 4, 8, 16, 32]
 
 	$scope.generateBracket = function(tournament){
-		console.log(tournament)
+		var teamArr = [];
+		angular.forEach(tournament.teamNames, function(pls) {
+			teamArr.push(pls)
+		})
+
+		if(teamArr.length <= $scope.tournament.teams){
+			var diff = $scope.tournament.teams - teamArr.length
+			for(var i = 0; i < diff; i++){
+				teamArr.push("TBD")
+				console.log(diff)
+			}
+		}
+
+		$scope.tournament.teamNames = teamArr;
+
 		tournamentService.generateBracketservice(tournament).then(function(response){
-			$scope.tournament = null
-			console.log(tournament)
+			$scope.tournament = null			
 			$state.go('dashboard')
 		})
 	}

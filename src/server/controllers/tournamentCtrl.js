@@ -63,7 +63,7 @@ var handlePut = function(req, res) {
 // };
 /////
 var handleDelete = function(req, res) {
-	Tournament.remove({ userId: req.user._id, _id: req.params.beer_id }, function(err) {
+	Tournament.remove({ userId: req.user._id, _id: req.params.tournament_id }, function(err) {
 		if(error) {
 			res.status(500).json(err)
 		} else {

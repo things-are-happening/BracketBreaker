@@ -2,6 +2,40 @@
 <h1 class='form-group flex space-around'>{{tournament.name}} - {{tournament.location}}</h1>
 <h3 class='form group flex space-around'>{{tournament.type}}</h3>
 	<div class="flex space-between container">
+<<<<<<< HEAD
+		<ul class="nav nav-tabs">
+			<li class="bracketTab active">
+				<a href="#round1" data-toggle="tab"> Round 1 </a>
+			</li>
+			<li class="bracketTab">
+				<a href="#round2" data-toggle="tab"> Round 2 </a>
+			</li>
+			<li class="bracketTab">
+				<a href="#round3" data-toggle="tab"> Quarter-finals </a>
+			</li>
+			<li class="bracketTab">
+				<a href="#round4" data-toggle="tab"> Semi-finals </a>
+			</li>
+			<li class="bracketTab">
+				<a href="#round5" data-toggle="tab"> Finals </a>
+			</li>
+		</ul>
+	</div>
+
+
+	<div class="tab-content">
+		<div class="container-fluid view-body tab-pane active" id="round1" role="tabpanel">
+			<div class="col-md-3 col-sm-6" ng-repeat="match in matches">
+				<a data-toggle="modal" data-target="#testModal">
+					<div class="match-panel">
+						<div class="team-names">
+
+							<div class="flex direction-row space-between">
+								<h4> {{match.teamOne}}: </h4>
+								<div class="scorePosition">
+									<h4> {{match.teamOneScore}} </h4>
+								</div>
+=======
 		<ul class="nav nav-tabs" role="tablist">
 			<li class="bracketTab" id="round1tab" ng-if="tournament.teams >= 32">
 				<a href="#round1" data-toggle="tab" aria-controls="round1" role="tab" target="_self"> Round 1 </a>
@@ -33,23 +67,70 @@
 							<h4> {{match.teamOne}}: </h4>
 							<div class="scorePosition">
 								<h4> {{match.teamOneScore}} </h4>
+>>>>>>> a3eb7610525578967998d19fda1e2b5236bd14ab
 							</div>
 						</div>
 
+<<<<<<< HEAD
+							<div class="flex direction-row space-between">
+								<h4> {{match.teamTwo}}: </h4>
+								<div>
+									<h4> {{match.teamTwoScore}} </h4>
+								</div>
+=======
 						<div class="flex direction-row space-between">
 							<h4> {{match.teamTwo}}: </h4>
 							<div>
 								<h4> {{match.teamTwoScore}} </h4>
+>>>>>>> a3eb7610525578967998d19fda1e2b5236bd14ab
 							</div>
 						</div>
 
+<<<<<<< HEAD
+							<div class="flex space-around match-panel-date">
+								{{match.date}}, {{match.time}}
+							</div>
+=======
 						<div class="flex space-around match-panel-date">
 							{{match.date}}, {{match.time}}
+>>>>>>> a3eb7610525578967998d19fda1e2b5236bd14ab
 						</div>
 					</div>
 				</div>
 			</a>
 		</div>
+<<<<<<< HEAD
+
+		<div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="close">
+							<span aria-hidden="true"> &times; </span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p> hello </p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid view-body tab-pane" id="round2" role="tabpanel">
+			<div class="col-md-3 col-sm-6" ng-repeat="match in matches">
+				<a data-toggle="modal" data-target="#testModal">
+					<div class="match-panel">
+						<div class="team-names">
+
+							<div class="flex direction-row space-between">
+								<h4> {{match.teamOne}}: </h4>
+								<div class="scorePosition">
+									<h4> {{match.teamOneScore}} </h4>
+								</div>
+=======
 	</div>
 
 	<div class="modal fade" id="matchModal" tabindex="-1">
@@ -87,24 +168,57 @@
 						<div class="flex direction-row space-between">
 							<h4> {{match.teamOne}}: </h4>
 							<div class="scorePosition">
+<<<<<<< HEAD
+								<h4> {{match.teamOneScore}} LOOK AT MEEE</h4>
+>>>>>>> a3eb7610525578967998d19fda1e2b5236bd14ab
+=======
 								<h4> {{match.teamOneScore}} </h4>
+>>>>>>> 8938b399b52eaf6b0f6878dc9a2bc959a6f57955
 							</div>
 						</div>
 
+<<<<<<< HEAD
+							<div class="flex direction-row space-between">
+								<h4> {{match.teamTwo}}: </h4>
+								<div>
+									<h4> {{match.teamTwoScore}} </h4>
+								</div>
+=======
 						<div class="flex direction-row space-between">
 							<h4> {{match.teamTwo}}: </h4>
 							<div>
 								<h4> {{match.teamTwoScore}} </h4>
+>>>>>>> a3eb7610525578967998d19fda1e2b5236bd14ab
 							</div>
 						</div>
 
+<<<<<<< HEAD
+							<div class="flex space-around match-panel-date">
+								{{match.date}}, {{match.time}}
+							</div>
+=======
 						<div class="flex space-around match-panel-date">
 							{{match.date}}, {{match.time}}
+>>>>>>> a3eb7610525578967998d19fda1e2b5236bd14ab
 						</div>
 					</div>
 				</div>
 			</a>
 		</div>
+<<<<<<< HEAD
+
+		<div class="container-fluid view-body tab-pane" id="round3" role="tabpanel">
+			<div class="col-md-3 col-sm-6" ng-repeat="match in matches">
+				<a data-toggle="modal" data-target="#testModal">
+					<div class="match-panel">
+						<div class="team-names">
+
+							<div class="flex direction-row space-between">
+								<h4> {{match.teamOne}}: </h4>
+								<div class="scorePosition">
+									<h4> {{match.teamOneScore}} </h4>
+								</div>
+=======
 	</div>
 
 	<div class="container-fluid view-body tab-pane fade in" id="round3" role="tabpanel" aria-labelledby="round3-tab">
@@ -114,26 +228,61 @@
 					<div class="team-names">
 
 						<div class="flex direction-row space-between">
+<<<<<<< HEAD
+							<h4> {{match.teamOne}}: ASDKJAFKJAFNJK</h4>
+							<div class="scorePosition">
+								<h4> {{match.teamOneScore}} NASDKJLNADKJNAFKJ</h4>
+>>>>>>> a3eb7610525578967998d19fda1e2b5236bd14ab
+=======
 							<h4> {{match.teamOne}}: </h4>
 							<div class="Position">
 								<h4> {{match.teamOneScore}} </h4>
+>>>>>>> 8938b399b52eaf6b0f6878dc9a2bc959a6f57955
 							</div>
 						</div>
 
+<<<<<<< HEAD
+							<div class="flex direction-row space-between">
+								<h4> {{match.teamTwo}}: </h4>
+								<div>
+									<h4> {{match.teamTwoScore}} </h4>
+								</div>
+=======
 						<div class="flex direction-row space-between">
 							<h4> {{match.teamTwo}}: </h4>
 							<div>
 								<h4> {{match.teamTwoScore}} </h4>
+>>>>>>> a3eb7610525578967998d19fda1e2b5236bd14ab
 							</div>
 						</div>
 
+<<<<<<< HEAD
+							<div class="flex space-around match-panel-date">
+								{{match.date}}, {{match.time}}
+							</div>
+=======
 						<div class="flex space-around match-panel-date">
 							{{match.date}}, {{match.time}}
+>>>>>>> a3eb7610525578967998d19fda1e2b5236bd14ab
 						</div>
 					</div>
 				</div>
 			</a>
 		</div>
+<<<<<<< HEAD
+
+		<div class="container-fluid view-body tab-pane" id="round4" role="tabpanel">
+			<div class="col-md-3 col-sm-6" ng-repeat="match in matches">
+				<a data-toggle="modal" data-target="#testModal">
+					<div class="match-panel">
+						<div class="team-names">
+
+							<div class="flex direction-row space-between">
+								<h4> {{match.teamOne}}: </h4>
+								<div class="scorePosition">
+									<h4> {{match.teamOneScore}} </h4>
+								</div>
+=======
 	</div>
 
 	<div class="container-fluid view-body tab-pane fade in" id="round4" role="tabpanel" aria-labelledby="round4-tab">
@@ -146,23 +295,52 @@
 							<h4> {{match.teamOne}}: </h4>
 							<div class="Position">
 								<h4> {{match.teamOneScore}} </h4>
+>>>>>>> a3eb7610525578967998d19fda1e2b5236bd14ab
 							</div>
 						</div>
 
+<<<<<<< HEAD
+							<div class="flex direction-row space-between">
+								<h4> {{match.teamTwo}}: </h4>
+								<div>
+									<h4> {{match.teamTwoScore}} </h4>
+								</div>
+=======
 						<div class="flex direction-row space-between">
 							<h4> {{match.teamTwo}}: </h4>
 							<div>
 								<h4> {{match.teamTwoScore}} </h4>
+>>>>>>> a3eb7610525578967998d19fda1e2b5236bd14ab
 							</div>
 						</div>
 
+<<<<<<< HEAD
+							<div class="flex space-around match-panel-date">
+								{{match.date}}, {{match.time}}
+							</div>
+=======
 						<div class="flex space-around match-panel-date">
 							{{match.date}}, {{match.time}}
+>>>>>>> a3eb7610525578967998d19fda1e2b5236bd14ab
 						</div>
 					</div>
 				</div>
 			</a>
 		</div>
+<<<<<<< HEAD
+
+		<div class="container-fluid view-body tab-pane" id="round5" role="tabpanel">
+			<div class="col-md-3 col-sm-6" ng-repeat="match in matches">
+				<a data-toggle="modal" data-target="#testModal">
+					<div class="match-panel">
+						<div class="team-names">
+
+							<div class="flex direction-row space-between">
+								<h4> {{match.teamOne}}: </h4>
+								<div class="scorePosition">
+									<h4> {{match.teamOneScore}} </h4>
+								</div>
+=======
 	</div>
 
 	<div class="container-fluid view-body tab-pane fade in" id="round5" role="tabpanel" aria-labelledby="round5-tab">
@@ -175,18 +353,33 @@
 							<h4> {{match.teamOne}}: </h4>
 							<div class="Position">
 								<h4> {{match.teamOneScore}} </h4>
+>>>>>>> a3eb7610525578967998d19fda1e2b5236bd14ab
 							</div>
 						</div>
 
+<<<<<<< HEAD
+							<div class="flex direction-row space-between">
+								<h4> {{match.teamTwo}}: </h4>
+								<div>
+									<h4> {{match.teamTwoScore}} </h4>
+								</div>
+=======
 						<div class="flex direction-row space-between">
 							<h4> {{match.teamTwo}}: </h4>
 							<div>
 								<h4> {{match.teamTwoScore}} </h4>
+>>>>>>> a3eb7610525578967998d19fda1e2b5236bd14ab
 							</div>
 						</div>
 
+<<<<<<< HEAD
+							<div class="flex space-around match-panel-date">
+								{{match.date}}, {{match.time}}
+							</div>
+=======
 						<div class="flex space-around match-panel-date">
 							{{match.date}}, {{match.time}}
+>>>>>>> a3eb7610525578967998d19fda1e2b5236bd14ab
 						</div>
 					</div>
 				</div>
@@ -194,5 +387,9 @@
 		</div>
 	</div>
 
+<<<<<<< HEAD
+	</div>
+=======
 
+>>>>>>> a3eb7610525578967998d19fda1e2b5236bd14ab
 </div>

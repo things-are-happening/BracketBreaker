@@ -1,9 +1,8 @@
-var mongoose = require('mongoose')
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
-// var Schema = mongoose.Schema;
+var Schema = mongoose.Schema;
 
-var UserSchema = new mongoose.Schema({
+var UserSchema = new Schema({
 	name: {
 		type: String,
 		required: true
@@ -20,9 +19,9 @@ var UserSchema = new mongoose.Schema({
 	password: {
 		type: String,
 		required: true
-	},
+	}
 
-}, {timestamp: true, versionKey: false})
+});
 
 UserSchema.methods.generateHash = function( password ) {
 	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
@@ -36,7 +35,7 @@ UserSchema.methods.validatePassword = function( password ) {
 UserSchema.pre('save', function(next){
  var user = this;
  if(!user.isModified('password')) return next();
- user.password = userSchema.methods.generateHash(user.password);
+ user.password = UserSchema.methods.generateHash(user.password);
  next();
 });
 

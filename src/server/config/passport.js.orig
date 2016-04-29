@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+/*<<<<<<< HEAD
  // Load required packages
 var passport = require('passport');
 var BasicStrategy = require('passport-http').BasicStrategy;
@@ -63,4 +63,4 @@ passport.deserializeUser(function(_id, done) {
 
 
 module.exports = passport;
->>>>>>> 8ff3654ef780f9b82c41acba2c4f39ca82883ce7
+>>>>>>> 8ff3654ef780f9b82c41acba2c4f39ca82883ce7*/
