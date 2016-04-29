@@ -1,4 +1,4 @@
-angular.module('torunament')
+angular.module('tournament')
   .service('userService', function($http, $state) {
 
 

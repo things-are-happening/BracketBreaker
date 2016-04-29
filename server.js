@@ -18,12 +18,11 @@ var passport = require('./src/server/config/passport.js');
 var userCtrl = require('./src/server/controllers/userCtrl.js');
 
 
-app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(cors());
 
-app.use(express.static(__dirname + './src/client'));
+app.use(express.static(__dirname + '/src/client'));
 
 app.use(session({
     secret: 'flsjf843957483hfhjhsjfkhdaklhg',

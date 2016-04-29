@@ -1,4 +1,4 @@
-angular.module('torunament')
+angular.module('tournament')
 .controller('userCtrl', function($scope, $state, userService){
 
 
