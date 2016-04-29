@@ -1,7 +1,7 @@
 var app = angular.module("tournament", ['ui.router']);
 app.config(function($stateProvider, $urlRouterProvider){
 
-  // $urlRouterProvider.otherwise('/dashboard');
+  $urlRouterProvider.otherwise('/dashboard');
  	$stateProvider
 
     .state('home', {
@@ -62,9 +62,13 @@ app.config(function($stateProvider, $urlRouterProvider){
         }
       },
       resolve: {
-        function(tournamentService, $stateParams){
+        currentTourney: function(tournamentService, $stateParams){
           return tournamentService.getTournamentById($stateParams.id);
         }
+        // ,
+        // function(tournamentService, $stateParams){
+        //   return tournamentService.getMatchesById($stateParams.id)
+        // }
       }
     })
 })

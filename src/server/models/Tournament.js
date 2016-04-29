@@ -30,7 +30,7 @@ var tournament = new Schema({
 		ref: 'User'
 	}
 }
-// , {timestamp: true, versionKey: false}
+, {timestamp: true, versionKey: false}
 )
 
 module.exports = mongoose.model('Tournament', tournament)

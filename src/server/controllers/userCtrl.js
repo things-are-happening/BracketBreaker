@@ -1,11 +1,32 @@
-var User = require('./../models/User');
+var User = require('../models/User');
 
-var handlePost = function('/api/login', 
-  passport.authenticate('localapikey', { session: false,failureRedirect: '/api/unauthorized' }),
-  function(req, res) {
-    res.json({ message: "Authenticated" })
+var postUsers = function(req, res) {
+  var user = new User({
+    username: req.body.username,
+    password: req.body.password
   });
 
+  user.save(function(err) {
+    if (err)
+      return res.send(err);
+
+    res.json({ message: 'New BracketBreaker champion added to the locker room!' });
+  });
+};
+//////////
+
+var getUsers = function(req, res) {
+  User.find(function(err, users) {
+    if (err)
+      res.send(err);
+
+    res.json(users);
+  });
+};
+
+
 module.exports = {
-	post: handlePost;
-}
+  post: postUsers,
+  get: getUsers
+  
+};

@@ -2,7 +2,7 @@ var Match = require('./../models/Match');
 
 //find many query:
 var handleGetAll = function(req, res) {
-	Match.find(req.query, function(error, response) {
+	Match.find({ userId: req.user._id }, function(err, response) {
 		if(error) {
 			res.status(500).json(error)
 		} else {
@@ -13,7 +13,7 @@ var handleGetAll = function(req, res) {
 /////
 //find one query:
 var handleGetOne = function(req, res) {
-	Match.findById(req.params.id, function(error, response) {
+	Match.find({ userId: req.user._id, _id: req.params.beer_id }, function(err, response) {
 		if(error) {
 			res.status(500).json(error)
 		} else {
