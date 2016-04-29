@@ -13,7 +13,7 @@ app.config(function($stateProvider, $urlRouterProvider){
         }
       }
     })
-    
+
     .state('dashboard', {
       url: '/dashboard',
       views: {
@@ -69,6 +69,26 @@ app.config(function($stateProvider, $urlRouterProvider){
         // function(tournamentService, $stateParams){
         //   return tournamentService.getMatchesById($stateParams.id)
         // }
+      }
+    })
+
+    .state('login', {
+      url: '/login',
+      views: {
+        "content@" : {
+          controller: 'dashboardCtrl',
+          templateUrl: './templates/tournament/home.html'
+        }
+      }
+    })
+
+    .state('signup', {
+      url: '/signup',
+      views: {
+        "content@" : {
+          controller: 'dashboardCtrl',
+          templateUrl: './templates/tournament/signup.html'
+        }
       }
     })
 })

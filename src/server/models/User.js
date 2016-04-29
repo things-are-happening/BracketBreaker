@@ -1,3 +1,4 @@
+var mongoose = require('mongoose')
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 // var Schema = mongoose.Schema;
@@ -19,43 +20,24 @@ var UserSchema = new mongoose.Schema({
 	password: {
 		type: String,
 		required: true
-	}
-	
-	// profile: {
- //    name: { type: String, default: '' },
- //    gender: { type: String, default: '' },
- //    location: { type: String, default: '' },
- //    website: { type: String, default: '' },
- //    picture: { type: String, default: '' }
- //  	}
+	},
 
-}, {timestamp: true});
+}, {timestamp: true, versionKey: false})
 
-// Execute before each user.save() call
-UserSchema.pre('save', function(callback) {
-  var user = this;
-
-  // Break out if the password hasn't changed
-  if (!user.isModified('password')) return callback();
-
-  // Password changed so we need to hash it
-  bcrypt.genSalt(5, function(err, salt) {
-    if (err) return callback(err);
-
-    bcrypt.hash(user.password, salt, null, function(err, hash) {
-      if (err) return callback(err);
-      user.password = hash;
-      callback();
-    });
-  });
-});
-
-//function capable of verifying a password in order to authenticate calls to the API
-UserSchema.methods.verifyPassword = function(password, cb) {
-  bcrypt.compare(password, this.password, function(err, isMatch) {
-    if (err) return cb(err);
-    cb(null, isMatch);
-  });
+UserSchema.methods.generateHash = function( password ) {
+	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-// module.exports = mongoose.model('User', UserSchema);
+UserSchema.methods.validatePassword = function( password ) {
+	return bcrypt.compareSync(password, this.password);
+};
+
+
+UserSchema.pre('save', function(next){
+ var user = this;
+ if(!user.isModified('password')) return next();
+ user.password = userSchema.methods.generateHash(user.password);
+ next();
+});
+
+module.exports =  mongoose.model('User', UserSchema)
