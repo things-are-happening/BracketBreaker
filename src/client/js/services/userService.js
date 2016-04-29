@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 angular.module('tournament')
+=======
+angular.module('torunament')
+>>>>>>> parent of 3b4cb5b... auth working....mostly
   .service('userService', function($http, $state) {
 =======
 app.service('userService', function($http, $state) {

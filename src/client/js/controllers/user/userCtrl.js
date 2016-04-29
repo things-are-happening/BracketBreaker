@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 angular.module('tournament')
+=======
+angular.module('torunament')
+>>>>>>> parent of 3b4cb5b... auth working....mostly
 .controller('userCtrl', function($scope, $state, userService){
 =======
 app.controller('userCtrl', function($scope, $state, userService){
