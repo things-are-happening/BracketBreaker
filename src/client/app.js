@@ -87,7 +87,7 @@ app.config(function($stateProvider, $urlRouterProvider){
       url: '/login',
       views: {
         "content@" : {
-          controller: 'loginCtrl',
+          controller: 'userCtrl',
           templateUrl: './templates/home/home.html'
         }
       }

@@ -8,6 +8,7 @@ app.service("tournamentService", function($q, $http){
 		$http.get('/api/tournament').then(function(response){
 			dfd.resolve(response.data);
 		})
+		console.log(dfd.promise)
 		return dfd.promise;
 	}
 
@@ -23,6 +24,7 @@ app.service("tournamentService", function($q, $http){
   	console.log("userService id", id)
   	return $http.delete("/api/tournament/" + id);
   }
+
   this.getTournaments = function(){
   	return $http.get("/api/tournament")
   }

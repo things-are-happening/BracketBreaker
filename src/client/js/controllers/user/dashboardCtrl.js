@@ -16,8 +16,7 @@ app.controller("dashboardCtrl", function($scope, tournamentsList, userService, t
 	$scope.deleteTournament = function(id){		
 		tournamentService.deleteTournament(id).then(function(response){
 			tournamentService.getTournaments().then(function(response){
-				console.log(response)
-				$scope.tournaments = response;
+				$scope.tournaments = response.data;
 			})
 		})
 	}
