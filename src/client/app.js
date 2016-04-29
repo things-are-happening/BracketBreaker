@@ -29,6 +29,21 @@ app.config(function($stateProvider, $urlRouterProvider){
       }
     })
 
+    .state('edit', {
+      url:'/dashboard/:id/edit',
+      views:{
+        "content": {
+          controller: 'editTournamentCtrl',
+          templateUrl: './templates/tournament/edit.html'
+        }
+      },
+      resolve: {
+        currentTourney: function(tournamentService, $stateParams){
+          return tournamentService.getTournamentById($stateParams.id);
+        }
+      }
+    })
+
     /**
       NOTE: Change app states to become child of 'app' for Auth
     **/
@@ -65,10 +80,26 @@ app.config(function($stateProvider, $urlRouterProvider){
         currentTourney: function(tournamentService, $stateParams){
           return tournamentService.getTournamentById($stateParams.id);
         }
-        // ,
-        // function(tournamentService, $stateParams){
-        //   return tournamentService.getMatchesById($stateParams.id)
-        // }
+      }
+    })
+
+    .state('login', {
+      url: '/login',
+      views: {
+        "content@" : {
+          controller: 'loginCtrl',
+          templateUrl: './templates/home/home.html'
+        }
+      }
+    })
+
+    .state('signup', {
+      url: '/signup',
+      views: {
+        "content@" : {
+          controller: 'dashboardCtrl',
+          templateUrl: './templates/home/signup.html'
+        }
       }
     })
 })

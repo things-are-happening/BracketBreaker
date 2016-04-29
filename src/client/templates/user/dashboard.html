@@ -12,9 +12,20 @@
 					</div>
 				</a>
 			</div>
-			<a ng-repeat='tournament in tournaments | filter:search' class='match-link' ui-sref='viewTournament({id:tournament._id})'>
+			<div ng-repeat='tournament in tournaments | filter:search' class='match-link'>
 				<div class='match col-md-6 col-xs-6'>
-					<div class='match-body flex direction-column vertical-center'>
+				<div>
+					<button ui-sref="edit({id:tournament._id})">edit</button>
+					<button type="button" class="close" ng-click="show=!show">
+						<span aria-hidden="true"> &times; </span>
+					</button>
+					<form ng-show="show">
+						<h3>Are you sure?</h3>
+						<button ng-click="deleteTournament(tournament._id)">yes</button>
+						<button class="close">No</button>
+					</form>
+				</div>
+					<div class='match-body flex direction-column vertical-center' ui-sref='viewTournament({id:tournament._id})'>
 						<h2 class='tournament-panel-h1'> {{tournament.name}} </h2>
 						<h3> {{tournament.sport}} </h3>
 						<div class='flex direction-row space-between dates'>
@@ -25,7 +36,7 @@
 						<h5> {{tournament.location}} </h5>
 					</div>
 				</div>
-			</a>
+			</div>
 		</div>
 	</div>
 	<div class='historical dashboardPanel row'>
