@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 /// FILES ///
 var User = require('../models/User.js');
 
 
-
-=======
 var User = require('./../models/User.js');
->>>>>>> 314003b37d84531c602e66470bd9d95138161d53
 
 module.exports = {
 
@@ -49,11 +45,10 @@ module.exports = {
         if (req.user) {
             next();
         } else {
-<<<<<<< HEAD
             res.status(403).send('Not Permitted');
-=======
+
             res.status(403).send('I give up');
->>>>>>> 314003b37d84531c602e66470bd9d95138161d53
+
         }
     }
 

@@ -5,11 +5,8 @@ var express = require('express'),
 	cors = require('cors'),
 	mongoose = require('mongoose'),
 	morgan = require('morgan'),
-<<<<<<< HEAD
 	LocalStrategy = require('passport-local').Strategy;
-=======
 	LocalStrategy = require('passport-local').Strategy,
->>>>>>> 314003b37d84531c602e66470bd9d95138161d53
 	port = 9000,
 	mongoUri = 'mongodb://localhost:27017/tournament';
 
@@ -17,11 +14,8 @@ var express = require('express'),
 var tournament = require('./src/server/controllers/tournamentCtrl');
 var match = require('./src/server/controllers/matchCtrl');
 var team = require('./src/server/controllers/teamCtrl');
-<<<<<<< HEAD
 
 var passport = require('./src/server/config/passport.js');
-=======
->>>>>>> 314003b37d84531c602e66470bd9d95138161d53
 var userCtrl = require('./src/server/controllers/userCtrl.js');
 var passport = require('./src/server/config/passport.js');
 
@@ -31,7 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(cors());
 
-app.use(express.static(__dirname + './src/client'));
+app.use(express.static(__dirname + '/src/client'));
 
 app.use(session({
     secret: 'flsjf843957483hfhjhsjfkhdaklhg',
@@ -93,9 +87,6 @@ app.listen(port, function() {
 });
 
 mongoose.connection.once('open', function() {
-<<<<<<< HEAD
 	console.log('Connected to MongoDB at ' + mongoUri);
-=======
 	console.log('Connected to MongoDB at ' + mlabs);
->>>>>>> 314003b37d84531c602e66470bd9d95138161d53
 });

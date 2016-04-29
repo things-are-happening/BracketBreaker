@@ -1,14 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-angular.module('tournament')
-=======
-angular.module('torunament')
->>>>>>> parent of 3b4cb5b... auth working....mostly
-  .service('userService', function($http, $state) {
-=======
 app.service('userService', function($http, $state) {
->>>>>>> 314003b37d84531c602e66470bd9d95138161d53
-
 
     this.loginUser = function(username, password) {
       return $http({
