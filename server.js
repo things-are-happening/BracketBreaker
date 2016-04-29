@@ -4,14 +4,18 @@ var express = require('express'),
 	cors = require('cors'),
 	mongoose = require('mongoose'),
 	morgan = require('morgan'),
+	passport = require('passport'),
+	local = require('passport-local'),
 	port = 9000,
-	mongoUri = 'mongodb://localhost:27017/tournament';
+	mlabs = require('./src/server/config/database.js');
+
+mongoose.connect(mlabs.url);
 
 var tournament = require('./src/server/controllers/tournamentCtrl');
 var match = require('./src/server/controllers/matchCtrl');
 var team = require('./src/server/controllers/teamCtrl');
 var user = require('./src/server/controllers/userCtrl');
-var passport = require('./src/server/config/passport');
+require('./src/server/config/passport');
 
 //middleware
 app.use(morgan('dev'));
@@ -20,7 +24,8 @@ app.use(cors());
 app.use(express.static(__dirname + '/src/client'));
 app.use(passport.initialize()); // must come before .session()
 app.use(passport.session());
-app.post('/api/user', user.addUser); //makes new user
+
+app.post('/api/user', user.addUser);
 app.get('/api/user', user.getUser);
 app.get('/api/getCurrentUser', user.getCurrentUser);
 app.post('/api/login', passport.authenticate( 'local-auth', {
@@ -53,7 +58,6 @@ app.delete('/api/team/:id', team.delete);
 app.listen(port, function() {
 	console.log('Listening on ' + port);
 });
-mongoose.connect(mongoUri);
 mongoose.connection.once('open', function() {
-	console.log('Connected to MongoDB at ' + mongoUri);
+	console.log('Connected to MongoDB at ' + mlabs);
 });
