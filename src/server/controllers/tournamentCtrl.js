@@ -37,6 +37,7 @@ var handleGetOne = function(req, res) {
 //update query:
 var handlePut = function(req, res) {
 	Tournament.findByIdAndUpdate(req.params.id, req.body, function(error, response) {
+		console.log("req", req)
 		if(error) {
 			res.status(500).json(error)
 		} else {

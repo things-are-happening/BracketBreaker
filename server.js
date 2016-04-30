@@ -66,7 +66,7 @@ app.use(session({
 app.get('/api/tournament/:id', tournament.getOne);
 app.get('/api/tournament', tournament.get);
 app.post('/api/tournament', tournament.post);
-app.put('/api/tournament', tournament.put);
+app.put('/api/tournament/:id', tournament.put);
 app.delete('/api/tournament/:id', tournament.delete);
 //////
 app.get('/api/match', match.getAll);

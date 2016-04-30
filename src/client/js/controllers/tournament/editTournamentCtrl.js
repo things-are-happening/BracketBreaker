@@ -6,11 +6,18 @@ app.controller("editTournamentCtrl", function($scope, currentTourney, tournament
 	$scope.tournament.data.start = new Date(currentTourney.data.start)
 	$scope.tournament.data.end = new Date(currentTourney.data.end)
 
-	$scope.editTournament = function(id, tourney){
-		console.log("id", id)
-		console.log("tournament", tourney)
-		tournamentService.editTournament(id, tourney).then(function(response){
+	console.log($scope.tournament.data);
+
+	$scope.editTournament = function(id, parameter){
+		console.log(parameter)
+		if(parameter.teams <= currentTourney.data.teams){			
+			parameter.teamNames = parameter.teamNames.slice(0, parameter.teams)
+		}
+
+		console.log(parameter)
+		tournamentService.editTournament(id, parameter).then(function(response){
 			$state.go('dashboard')
 		})
 	}
+
 })
