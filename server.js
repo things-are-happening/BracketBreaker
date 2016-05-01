@@ -27,12 +27,12 @@ app.set('superSecret', config.secret);
 app.use(cors());
 app.use(express.static(__dirname + '/src/client'));
 app.use(session({secret:config.secret}));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(flash());
 //endpoints
 var routes = require('./src/server/config/routes.js')(app, passport);
-var localpass = require('./src/server/config/passport.js')
+var localpass = require('./src/server/config/passport.js')(passport);
 app.set('view engine', 'ejs');
 app.get('/api/tournament/:id', tournament.getOne);
 app.get('/api/tournament', tournament.get);
