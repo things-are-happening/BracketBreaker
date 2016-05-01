@@ -17,7 +17,8 @@ app.service("tournamentService", function($q, $http){
 	}
 
 	this.editTournament = function(id, tournament){
-		return $http.put('/api/tournament/'+id)
+		console.log(tournament)
+		return $http.put('/api/tournament/'+id, tournament)
 	}
 
 	this.deleteTournament = function(id){

@@ -15,9 +15,8 @@ mongoose.connect(mlabs.url);
 var tournament = require('./src/server/controllers/tournamentCtrl');
 var match = require('./src/server/controllers/matchCtrl');
 var team = require('./src/server/controllers/teamCtrl');
-
-var passport = require('./src/server/config/passport.js');
 var userCtrl = require('./src/server/controllers/userCtrl.js');
+var passport = require('./src/server/config/passport.js');
 
 
 app.use(morgan('dev'));
@@ -67,7 +66,8 @@ app.use(session({
 app.get('/api/tournament/:id', tournament.getOne);
 app.get('/api/tournament', tournament.get);
 app.post('/api/tournament', tournament.post);
-app.put('/api/tournament', tournament.put);
+app.put('/api/tournament/:id', tournament.put);
+app.delete('/api/tournament/:id', tournament.delete);
 //////
 app.get('/api/match', match.getAll);
 app.get('/api/match:id', match.getOne);
@@ -87,6 +87,5 @@ app.listen(port, function() {
 });
 
 mongoose.connection.once('open', function() {
-	// console.log('Connected to MongoDB at ' + mongoUri);
 	console.log('Connected to MongoDB at ' + mlabs);
 });
