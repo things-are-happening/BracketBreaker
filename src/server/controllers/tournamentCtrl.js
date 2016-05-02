@@ -26,11 +26,9 @@ var handlePost = function(req, res) {
 }
 
 var getAll = function(req, res){
-	console.log(11111, req.params);
-	User.findById(req.params.id).populate('tournament').then(function(response, error) {
-			console.log(response);
-		if (error) {
-			return res.status(500).send(error);
+	Tournament.find().populate('user').exec(function(err, response){
+		if (err) {
+			return res.status(500).send(err);
 		}
 
 		return res.send(response);

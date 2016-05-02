@@ -28,7 +28,7 @@
                             <strong>email</strong>: <%= user.local.email %><br>
                             <strong>password</strong>: <%= user.local.password %>
                         </p>
-                        <a href="/#/dashboard" class="btn btn-default btn-sm">My Tournaments</a>
+                        <a href="/#/dashboard" ng-Click="localStorage.setItem('user', user_.id);" class="btn btn-default btn-sm">My Tournaments</a>
                     </div>
                 </div>
 
