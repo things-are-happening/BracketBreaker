@@ -13,6 +13,10 @@
 	width: 200px;
 }
 
+.matchButtons{
+	background-color: transparent;
+}
+
 .match{
 	background: #1f487e;
 	color: #F1F2F3;
