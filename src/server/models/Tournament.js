@@ -28,7 +28,7 @@ var tournament = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: 'Match'
 	},
-	owner: {
+	organizer: {
 		type: Schema.Types.ObjectId,
 		ref: 'User'
 	}

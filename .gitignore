@@ -1,6 +1,1 @@
-node_modules/
-**/*/secrets.*
-npm-*.**
-.DS_STORE
-.gitignore
-
+node_modules

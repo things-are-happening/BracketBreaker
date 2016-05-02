@@ -22,7 +22,11 @@
         </div>
       <ul class="nav navbar-nav navbar-right">
         <li>
+<<<<<<< HEAD
           <a ui-sref='login'>Logout</a>
+=======
+          <a href='/login'>Logout</a>
+>>>>>>> 255cf8c6cf47567fc0a6e123524048209b561839
         </li>
       </ul>
       </div>
@@ -44,9 +48,6 @@
   <script type="text/javascript" src="./js/controllers/tournament/viewTournamentCtrl.js"></script>
   <script type="text/javascript" src="./js/controllers/tournament/editTournamentCtrl.js"></script> 
   <script type="text/javascript" src="./js/controllers/user/dashboardCtrl.js"></script>
-<<<<<<< HEAD
-=======
   <script type="text/javascript" src="./js/services/userService.js"></script>
->>>>>>> 3420f6e019cddffc7e92dde8753c99d44dc76fe7
   <script type="text/javascript" src="./js/services/tournamentService.js"></script>
 </html>

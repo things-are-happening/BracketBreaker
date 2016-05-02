@@ -4,12 +4,9 @@ var Schema = mongoose.Schema
 
 var match = new Schema({
 	round: Array,
-	// score: Number,
-	// date: Date,
-	// teams:{
-	// 	type: Schema.Types.ObjectId,
-	// 	ref: 'Team'
-	// }
+	team1Score: Number,
+	team2Score: Number,
+	date: Date
 },{timestamp: true, versionKey: false})
 
 

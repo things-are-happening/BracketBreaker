@@ -102,5 +102,12 @@ app.config(function($stateProvider, $urlRouterProvider){
         }
       }
     })
+    .state('signup', {
+      url: '/signup',
+      views: {
+        "content@" : {
+          templateUrl: './templates/home/signup.html'
+        }
+    }
+  })
 })
-
