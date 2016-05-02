@@ -5,22 +5,25 @@ var User = require('../models/User');
 
 passport.use(new BasicStrategy(
   function(username, password, callback) {
-    User.findOne({ username: username }, function (err, user) {
+    console.log("BasicStrategy", username, password);
+    User.findOne({ userName: username }, function (err, user) {
       if (err) { return callback(err); }
+      console.log("found user?", user);
 
       // No user found with that username
       if (!user) { return callback(null, false); }
 
       // Make sure the password is correct
-      user.verifyPassword(password, function(err, isMatch) {
-        if (err) { return callback(err); }
+      var isMatch = user.validatePassword(password);
+      
+      console.log("did it validate?", isMatch);
+      if (err) { return callback(err); }
 
-        // Password did not match
-        if (!isMatch) { return callback(null, false); }
-
-        // Success
-        return callback(null, user);
-      });
+      // Password did not match
+      if (!isMatch) { return callback(null, false); }
+      console.log("Success!");
+      // Success
+      return callback(null, user);
     });
   }
   ));

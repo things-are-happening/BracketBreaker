@@ -1,5 +1,6 @@
 var express = require('express'),
 	app = express(),
+	session = require('express-session')
 	bodyParser = require('body-parser'),
 	cors = require('cors'),
 	mongoose = require('mongoose'),
@@ -7,8 +8,9 @@ var express = require('express'),
 	passport = require('passport')
 	port = process.env.PORT || 9000,
 	router = express.Router(),
-	mongoUri = 'mongodb://localhost:27017/tournament';
+	mlabs = require('./src/server/config/database.js');
 
+//required files
 var tournament = require('./src/server/controllers/tournamentCtrl');
 var match = require('./src/server/controllers/matchCtrl');
 var team = require('./src/server/controllers/teamCtrl');
@@ -16,15 +18,18 @@ var user = require('./src/server/controllers/userCtrl');
 var passportAuth = require('./src/server/config/passport');
 
 //middleware
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(__dirname + '/src/client'));
 app.use(passport.initialize());
 app.use('/api', router);
+app.use(session({
+    secret: 'flsjf843957483hfhjhsjfkhdaklhg',
+    resave: true,
+    saveUninitialized: true
+  }));
 
 //endpoints
 router.route('/tournament')
@@ -62,7 +67,7 @@ router.route('/users')
 app.listen(port, function() {
 	console.log('Listening on ' + port);
 });
-mongoose.connect(mongoUri);
+mongoose.connect(mlabs.url);
 mongoose.connection.once('open', function() {
-	console.log('Connected to MongoDB at ' + mongoUri);
+	console.log('Connected to MongoDB at ' + mlabs);
 });

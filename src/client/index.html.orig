@@ -1,4 +1,4 @@
-/*<<!-- <!-- !DOCTYPE html>
+<!DOCTYPE html>
 <html ng-app="tournament">
 <head>
   <title>BracketBreaker</title>
@@ -16,18 +16,13 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <a ui-sref="dashboard" class="navbar-brand">
-<<<<<<< HEAD
-            <img class="navLogo" src="../../assets/logo.png">
-            <img class="navLogo" src="../../assets/logo.png" alt="" />
-=======
             <strong>[ ]</strong>
             <!-- <img class="navLogo" src="../../assets/logo.png" alt="" /> -->
-<!-- >>>>>>> 8938b399b52eaf6b0f6878dc9a2bc959a6f57955
           </a>
         </div>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a ui-sref='home'>Logout</a>
+          <a ui-sref='login'>Logout</a>
         </li>
       </ul>
       </div>
@@ -47,10 +42,11 @@
   <script type="text/javascript" src="./js/controllers/tournament/addTournamentCtrl.js"></script>
   <script type="text/javascript" src="./js/controllers/tournament/tournamentCtrl.js"></script>
   <script type="text/javascript" src="./js/controllers/tournament/viewTournamentCtrl.js"></script>
+  <script type="text/javascript" src="./js/controllers/tournament/editTournamentCtrl.js"></script> 
   <script type="text/javascript" src="./js/controllers/user/dashboardCtrl.js"></script>
-  <script src="./js/services/userService.js" charset="utf-8"></script>
+<<<<<<< HEAD
+=======
+  <script type="text/javascript" src="./js/services/userService.js"></script>
+>>>>>>> 3420f6e019cddffc7e92dde8753c99d44dc76fe7
   <script type="text/javascript" src="./js/services/tournamentService.js"></script>
-
-  </script>
 </html>
- --> --> -->*/

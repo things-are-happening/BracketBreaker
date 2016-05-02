@@ -1,6 +1,6 @@
 var User = require('../models/User');
 
-var postUsers = function(req, res) {
+var addUsers = function(req, res) {
   var user = new User({
     name: req.body.name,
     userName: req.body.userName,
@@ -32,7 +32,7 @@ var getUsers = function(req, res) {
 
 
 module.exports = {
-  post: postUsers,
+  post: addUsers,
   get: getUsers
   
 };
