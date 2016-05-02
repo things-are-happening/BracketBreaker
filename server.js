@@ -19,6 +19,7 @@ var match = require('./src/server/controllers/matchCtrl');
 var team = require('./src/server/controllers/teamCtrl');
 var User = require('./src/server/models/User.js');
 var config = require('./src/server/config/secrets.js')
+
 //middleware
 app.use(morgan('dev'));
 app.use(bodyParser.json());
@@ -30,13 +31,14 @@ app.use(session({secret:config.secret}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+
 //endpoints
 var routes = require('./src/server/config/routes.js')(app, passport);
 var localpass = require('./src/server/config/passport.js')(passport);
 app.set('view engine', 'ejs');
 app.get('/api/tournament/:id', tournament.getOne);
-app.get('/api/tournament', tournament.get);
-app.post('/api/tournament', tournament.post);
+app.get('/api/tournaments/:id', tournament.get);
+app.post('/api/tournament/:id', tournament.post);
 app.put('/api/tournament', tournament.put);
 //////
 app.get('/api/match', match.getAll);

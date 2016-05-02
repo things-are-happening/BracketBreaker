@@ -1,27 +1,48 @@
-var Tournament = require('./../models/Tournament')
+var Tournament = require('./../models/Tournament');
+var User = require('./../models/User');
 //post query:
 var handlePost = function(req, res) {
 	console.log(req.body);
-    new Tournament(req.body).save(function(err, response) {
-        console.log("response", response);
-        console.log("error", err);
-        tournament.userId = req.user._id;
-        if(error) {
+    new Tournament(req.body).save(function(err, res) {
+    	if(err) {
             res.status(500).json(err)
-        } else {
-            res.send(response)
         }
-    })
+        console.log("response", res);
+            var newTournament = res._id;
+        // console.log("error", err);
+        // console.log(3428934, req.params.id);
+        User.findById(req.params.id).then(function(response, error) {
+        if(error) {
+           return res.status(500).json(error);
+        } else {
+            var user = response;
+       		 user.tournament.push(newTournament);
+       		 // console.log('user', user);
+       		 user.save();
+        }
+    })  
+})
+ return res.status(200).end();    
 }
 
 var getAll = function(req, res){
-	Tournament.find({ userId: req.user._id }, function(err, response){
-		if (err) {
-			return res.status(500).send(err);
+	console.log(11111, req.params);
+	User.findById(req.params.id).populate('tournament').then(function(response, error) {
+			console.log(response);
+		if (error) {
+			return res.status(500).send(error);
 		}
-		res.send(response)
+
+		return res.send(response);
 	})
 }
+	// Tournament.find({ userId: req.user._id }, function(err, response){
+	// 	if (err) {
+	// 		return res.status(500).send(err);
+	// 	}
+	// 	res.send(response)
+	// })
+// }
 /////
 //find one query:
 var handleGetOne = function(req, res) {
