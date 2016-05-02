@@ -1,3 +1,7 @@
+/// FILES ///
+var User = require('../models/User.js');
+
+
 var User = require('./../models/User.js');
 
 module.exports = {
@@ -41,7 +45,10 @@ module.exports = {
         if (req.user) {
             next();
         } else {
+            res.status(403).send('Not Permitted');
+
             res.status(403).send('I give up');
+
         }
     }
 

@@ -10,7 +10,7 @@ app.controller("editTournamentCtrl", function($scope, currentTourney, tournament
 
 	$scope.editTournament = function(id, parameter){
 		console.log(parameter)
-		if(parameter.teams <= currentTourney.data.teams){			
+		if(parameter.teams <= currentTourney.data.teams){
 			parameter.teamNames = parameter.teamNames.slice(0, parameter.teams)
 		}
 

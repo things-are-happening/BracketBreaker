@@ -24,10 +24,12 @@ var tournament = new Schema({
 	teamNames:{
 		type: Array
 	},
-	match: {
-		type: Schema.Types.ObjectId,
-		ref: 'Match'
-	},
+	match: [{
+	teamOne: String,
+	teamOneScore: Number,
+	teamTwo: String,
+	teamTwoScore: Number
+}],
 	owner: {
 		type: Schema.Types.ObjectId,
 		ref: 'User'

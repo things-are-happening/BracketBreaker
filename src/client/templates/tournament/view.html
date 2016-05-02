@@ -24,7 +24,7 @@
 
 <div class="tab-content">
 	<div class="container-fluid view-body tab-pane fade in" id="round1" role="tabpanel" aria-labelledby="round1-tab">
-		<div class="col-md-3 col-sm-6" ng-repeat="match in matches">
+		<div class="col-md-3 col-sm-6" ng-repeat="match in tournament.match">
 			<a data-toggle='modal' data-target='#matchModal'>
 				<div class="match-panel">
 					<div class="team-names">
@@ -44,7 +44,7 @@
 						</div>
 
 						<div class="flex space-around match-panel-date">
-							{{match.date}}, {{match.time}}
+							{{match.date}} {{match.time}}
 						</div>
 					</div>
 				</div>
@@ -60,18 +60,18 @@
 						<span aria-hidden="true"> &times; </span>
 					</button>
 				</div>
-				<div class="modal-body flex direction-column" ng-repeat="match in matches">
-					<div>
+				<div class="modal-body flex direction-column" ng-repeat="match in tournament.match">
+					<div class="flex direction-row space-between">
 						<label>{{match.teamOne}} score</label>
-						<input ng-model="match.teamOneScore"></input>
+						<input type="number" ng-model="match.teamOneScore"></input>
 					</div>
-					<div>
+					<div class="flex direction-row space-between">
 						<label>{{match.teamTwo}} score</label>
-						<input ng-model="match.teamTwoScore"></input>
-					</div>					
+						<input type="number" ng-model="match.teamTwoScore"></input>
+					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="saveMatchData(match)"> Save </button>
+					<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="saveMatchData(tournament._id)"> Save </button>
 					<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button>
 				</div>
 			</div>
@@ -79,7 +79,7 @@
 	</div>
 
 	<div class="container-fluid view-body tab-pane fade in" id="round2" role="tabpanel" aria-labelledby="round2-tab">
-		<div class="col-md-3 col-sm-6" ng-repeat="match in matches">
+		<div class="col-md-3 col-sm-6" ng-repeat="match in tournament.match">
 			<a data-toggle="modal" data-target="#matchModal">
 				<div class="match-panel">
 					<div class="team-names">
@@ -99,8 +99,9 @@
 						</div>
 
 						<div class="flex space-around match-panel-date">
-							{{match.date}}, {{match.time}}
+							{{match.date}} {{match.time}}
 						</div>
+						<button type="button" class="btn btn-default"> </button>
 					</div>
 				</div>
 			</a>
@@ -108,7 +109,7 @@
 	</div>
 
 	<div class="container-fluid view-body tab-pane fade in" id="round3" role="tabpanel" aria-labelledby="round3-tab">
-		<div class="col-md-3 col-sm-6" ng-repeat="match in matches">
+		<div class="col-md-3 col-sm-6" ng-repeat="match in tournament.match">
 			<a data-toggle="modal" data-target="#matchModal">
 				<div class="match-panel">
 					<div class="team-names">
@@ -128,8 +129,9 @@
 						</div>
 
 						<div class="flex space-around match-panel-date">
-							{{match.date}}, {{match.time}}
+							{{match.date}} {{match.time}}
 						</div>
+						<button type="button" class="btn btn-default"> </button>
 					</div>
 				</div>
 			</a>
@@ -137,7 +139,7 @@
 	</div>
 
 	<div class="container-fluid view-body tab-pane fade in" id="round4" role="tabpanel" aria-labelledby="round4-tab">
-		<div class="col-md-3 col-sm-6" ng-repeat="match in matches">
+		<div class="col-md-3 col-sm-6" ng-repeat="match in tournament.match">
 			<a data-toggle="modal" data-target="#matchModal">
 				<div class="match-panel">
 					<div class="team-names">
@@ -157,8 +159,9 @@
 						</div>
 
 						<div class="flex space-around match-panel-date">
-							{{match.date}}, {{match.time}}
+							{{match.date}} {{match.time}}
 						</div>
+						<button type="button" class="btn btn-default"> </button>
 					</div>
 				</div>
 			</a>
@@ -166,7 +169,7 @@
 	</div>
 
 	<div class="container-fluid view-body tab-pane fade in" id="round5" role="tabpanel" aria-labelledby="round5-tab">
-		<div class="col-md-3 col-sm-6" ng-repeat="match in matches">
+		<div class="col-md-3 col-sm-6" ng-repeat="match in tournament.match">
 			<a data-toggle="modal" data-target="#matchModal">
 				<div class="match-panel">
 					<div class="team-names">
@@ -186,8 +189,9 @@
 						</div>
 
 						<div class="flex space-around match-panel-date">
-							{{match.date}}, {{match.time}}
+							{{match.date}} {{match.time}}
 						</div>
+						<button type="button" class="btn btn-default" ng-click="declareWinner()"> </button>
 					</div>
 				</div>
 			</a>

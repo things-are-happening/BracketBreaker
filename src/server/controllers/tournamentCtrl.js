@@ -39,6 +39,7 @@ var handlePut = function(req, res) {
 	Tournament.findByIdAndUpdate(req.params.id, req.body, function(error, response) {
 		console.log("req", req)
 		if(error) {
+			console.log(error)
 			res.status(500).json(error)
 		} else {
 			res.json(response)
