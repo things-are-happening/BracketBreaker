@@ -14,7 +14,7 @@ var handlePost = function(req, res) {
 }
 
 var getAll = function(req, res){
-	Tournament.find().exec(function(err, response){
+	Tournament.find().populate('user').exec(function(err, response){
 		if (err) {
 			return res.status(500).send(err);
 		}

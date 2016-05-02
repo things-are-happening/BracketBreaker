@@ -4,6 +4,7 @@
 	</form>
 	<div class='active dashboardPanel row'>
 		<h2 class='page-header'> Active Tournaments </h2>
+		<button onClick='console.log(user)'></button>
 		<div class='match-cards-body'>
 			<div>
 				<a ui-sref='addTournament'>
@@ -18,18 +19,19 @@
 						<h2 class='tournament-panel-h1'> {{tournament.name}} </h2>
 						<h3> {{tournament.sport}} </h3>
 						<div class='flex direction-row space-between dates'>
-							<h5 ng-bind="tournament.start | date:'MM/dd/yyyy'"> {{tournament.start}} </h5> 
+							<h5 ng-bind="tournament.start | date:'MM/dd/yyyy'"> {{tournament.start}} </h5>
 							<h5> to </h5>
 							<h5 ng-bind="tournament.end | date:'MM/dd/yyyy'"> {{tournament.end}} </h5>
-						</div>						
+						</div>
 						<h5> {{tournament.location}} </h5>
+						<h5> {{tournament.owner}} </h5>
 					</div>
 				</div>
 			</a>
 		</div>
 	</div>
 	<div class='historical dashboardPanel row'>
-		<h2 class='page-header'> Historical Tournaments </h2>			
+		<h2 class='page-header'> Historical Tournaments </h2>
 		<div class='col-sm-3'>
 			<h2> FIFA World Cup 2014 </h2>
 			<h3> Soccer </h3>

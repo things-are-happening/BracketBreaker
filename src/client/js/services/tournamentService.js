@@ -15,10 +15,14 @@ app.service("tournamentService", function($q, $http){
 		return $http.get('/api/tournament/'+id)
 	}
 
+	this.getUserById = function(){
+		return $http.get('/')
+	}
+
 	// this.getMatches = function(id){
 	// 	var deferred = $q.defer();
 	// 	$http.get("/api/tournament/" + id)
-	// 		.then(function(response){								
+	// 		.then(function(response){
 	// 			deferred.resolve(response.data.match);
 	// 		})
 	// 	return deferred.promise;
