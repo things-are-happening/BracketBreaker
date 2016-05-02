@@ -22,7 +22,7 @@
 					<form ng-show="show">
 						<h3>Are you sure?</h3>
 						<button ng-click="deleteTournament(tournament._id)">yes</button>
-						<button class="close">No</button>
+						<button ng-click="show=!show">No</button>
 					</form>
 				</div>
 					<div class='match-body flex direction-column vertical-center' ui-sref='viewTournament({id:tournament._id})'>
