@@ -10,9 +10,9 @@ app.controller("viewTournamentCtrl", function($scope, currentTourney, tournament
 		}
 		matches.push(oneMatch)
 	}
-	$scope.tournament.match = matches
+	// $scope.tournament.match = matches
 
-	console.log(currentTourney)
+	console.log("match one score", $scope.tournament.match.teamOneScore)
 
 	$scope.saveMatchData = function(id){
 		tournamentService.editTournament(id, $scope.tournament)

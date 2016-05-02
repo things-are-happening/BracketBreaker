@@ -42,6 +42,7 @@ var handlePut = function(req, res) {
 			console.log(error)
 			res.status(500).json(error)
 		} else {
+			console.log("backend response", response)
 			res.json(response)
 		}
 	})
