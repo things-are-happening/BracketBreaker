@@ -1,6 +1,6 @@
 app.service("tournamentService", function($q, $http){
-	this.generateBracketservice = function(tournament){
-		return $http.post('/api/tournament', tournament)
+	this.generateBracketservice = function(id, tournament){
+		return $http.post('/api/tournament/:id', tournament)
 	}
 
 	this.getTournaments = function(){

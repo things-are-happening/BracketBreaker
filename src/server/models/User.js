@@ -1,31 +1,47 @@
+// load the things we need
 var mongoose = require('mongoose');
-var bcrypt = require('bcryptjs');
+var bcrypt = require('bcrypt-nodejs');
 var Schema = mongoose.Schema;
-
-var User = Schema({
-
-	  username: {type: String, required: true, unique:true},
-    password: {type: String, required: true}
-
+// define the schema for our user model
+var userSchema = mongoose.Schema({
+  local            : {
+      email        : String,
+      password     : String,
+  },
+  facebook         : {
+      id           : String,
+      token        : String,
+      email        : String,
+      name         : String
+  },
+  twitter          : {
+      id           : String,
+      token        : String,
+      displayName  : String,
+      username     : String
+  },
+  google           : {
+      id           : String,
+      token        : String,
+      email        : String,
+      name         : String
+  },
+  tournament: [{
+    type: Schema.Types.ObjectId,
+    ref: "Tournament"
+  }]
 });
 
-
-///////////bcrypt/////////////
-User.methods.generateHash = function( password ) {
-	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+// methods ======================
+// generating a hash
+userSchema.methods.generateHash = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-User.methods.validatePassword = function( password ) {
-	return bcrypt.compareSync(password, this.password);
+// checking if password is valid
+userSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.local.password);
 };
 
-
-/////////////saves hashed pw, not real pw///////////////
-User.pre('save', function(next){
- var user = this;
- if(!user.isModified('password')) return next();
- user.password = User.methods.generateHash(user.password);
- next();
-});
-
-module.exports = mongoose.model('User', User);
+// create the model for users and expose it to our app
+module.exports = mongoose.model('User', userSchema);
