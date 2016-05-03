@@ -17,28 +17,26 @@
   },
   "homepage": "https://github.com/things-are-happening/lets-do-this#readme",
   "dependencies": {
-<<<<<<< HEAD
     "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.15.0",
-    "connect-flash": "^0.1.1",
-    "cookie-parser": "^1.4.1",
-=======
+<<<<<<< HEAD
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.1",
     "cookie-session": "^1.2.0",
->>>>>>> 978ae987ae9740aca36809264c9c74a944ab552b
+=======
+    "body-parser": "^1.15.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.1",
+>>>>>>> a20235c5204ac8abff36e79b28419ea1d34fadce
     "cors": "^2.7.1",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
-<<<<<<< HEAD
     "jsonwebtoken": "^6.2.0",
     "method-override": "^2.3.5",
-=======
-    "md5": "^2.1.0",
->>>>>>> 978ae987ae9740aca36809264c9c74a944ab552b
     "mongoose": "^4.4.13",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",

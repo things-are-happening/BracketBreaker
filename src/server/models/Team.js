@@ -7,17 +7,20 @@ var teamSchema = new Schema({
 		type: String,
 	 	required: true
 	},
+	teamId: {
+		type: String,
+		required: true,
+		unique: true
+	},
 	players: Array,
 	owner: {
 		type: Schema.Types.ObjectId,
-		ref: 'User'
+		ref: `User`
 	},
 	tournaments: [{
 		type: Schema.Types.ObjectId,
-		ref: 'Tournament'
+		ref: `Tournament`
 	}]
-})
+}, {timestamp: true, versionKey: false})
 
 module.exports =  mongoose.model('Team', teamSchema)
-
-// , {timestamp: true, versionKey: false}

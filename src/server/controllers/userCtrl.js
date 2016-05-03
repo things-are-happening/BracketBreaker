@@ -1,55 +1,38 @@
-var User = require('../models/User.js');
+var User = require('../models/User');
 
+var addUsers = function(req, res) {
+  var user = new User({
+    name: req.body.name,
+    userName: req.body.userName,
+    email: req.body.email,
+    password: req.body.password
+  });
 
-var User = require('./../models/User.js');
+  user.save(function(err) {
+    if (err)
+      return res.send(err);
+
+    res.send({
+      message: 'New BracketBreaker champion added to the locker room!',
+      newUser: user
+     });
+  });
+};
+//// in the front-end, to acces the user: respnse.data.newUser
+//////////
+
+var getUsers = function(req, res) {
+  User.find(function(err, users) {
+    if (err)
+      res.send(err);
+
+    res.json(users);
+  });
+};
+
 
 module.exports = {
-
-    addUser: function(req, res) {
-        new User(req.body).save(function(err, user) {
-            if (err) {
-                res.status(500).send(err);
-            } else {
-                res.send(user);
-            }
-        });
-    },
-
-    /// gets current, logged in user ///
-    getCurrentUser: function(req, res) {
-        if (req.user) {
-            res.status(200).send(req.user);
-        } else {
-            res.status(403).send('forbidden');
-        }
-    },
-
-
-    getUser: function(req, res) {
-        User.findById(req.query.id, function(err, user) {
-            if (err) {
-                return console.error(err);
-            } else {
-                res.send(user);
-            }
-        });
-    },
-
-    logout: function(req, res) {
-        req.logout();
-        res.redirect('/');
-    },
-
-    isAuth: function(req, res, next) {
-        if (req.user) {
-            next();
-        } else {
-            res.status(403).send('Not Permitted');
-
-            res.status(403).send('I give up');
-
-        }
-    }
-
+  post: addUsers,
+  get: getUsers
 
 };
