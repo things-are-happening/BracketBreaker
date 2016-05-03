@@ -5,6 +5,10 @@
 			</h1>
 			<div class='form-group flex space-around'>
 				<div>
+					<label> Owner </label>
+					{{owner}}
+				</div>
+				<div>
 					<label> Start Date </label>
 					<input type='date' ng-model='tournament.start'/>
 				</div>
@@ -122,6 +126,6 @@
 				</form>
 			</div>
 			<br>
-			<button class='btn btn-default form-control' type='submit' ng-click='generateBracket(tournament)'> Lets gooooooo </button>
+			<button class='btn btn-default' type='submit' ng-click='generateBracket(tournament)'> Lets gooooooo </button>
 		</form>
 </section>
