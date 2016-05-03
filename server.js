@@ -37,7 +37,8 @@ var routes = require('./src/server/config/routes.js')(app, passport);
 var localpass = require('./src/server/config/passport.js')(passport);
 app.set('view engine', 'ejs');
 app.get('/api/tournament/:id', tournament.getOne);
-app.get('/api/tournaments/:id', tournament.get);
+app.get('/api/tournaments/:id', tournament.getAllTournamentsForUser);
+app.get('/api/tournaments', tournament.getAll);
 app.post('/api/tournament/:id', tournament.post);
 app.put('/api/tournament', tournament.put);
 //////

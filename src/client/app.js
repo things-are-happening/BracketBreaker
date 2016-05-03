@@ -102,6 +102,8 @@ app.config(function($stateProvider, $urlRouterProvider){
         }
       }
     })
+   
+    })
 //     .state('signup', {
 //       url: '/signup',
 //       views: {

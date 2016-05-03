@@ -4,6 +4,9 @@ app.service('userService', function($http, $q){
   	return $http.delete("/api/tournament/" + id);
   }
   this.getTournaments = function(){
-  	return $http.get("/api/tournament")
+  	return $http.get("/api/tournaments")
+  }
+  this.getTournamentsForUser = function(Usersid) {
+  	return $http.get("/api/tournaments/" + Usersid);
   }
 })

@@ -25,14 +25,24 @@ var handlePost = function(req, res) {
  return res.status(200).end();    
 }
 
-var getAll = function(req, res){
-	Tournament.find().populate('user').exec(function(err, response){
+var getAllTournamentsForUser = function(req, res){
+	User.findById(req.params.id).populate('tournament').exec(function(err, queUser){
+		console.log(queUser)
 		if (err) {
 			return res.status(500).send(err);
 		}
 
-		return res.send(response);
+		return res.status(200).send(queUser);
 	})
+}
+var getAll = function(req, res) {
+	Tournament.find().exec(function(err, res) {
+		if(err) {
+			res.status(500).json(err);
+		}
+		res.json(res)
+	})
+
 }
 	// Tournament.find({ userId: req.user._id }, function(err, response){
 	// 	if (err) {
@@ -105,7 +115,8 @@ var deleteTournament = function(req, res){
 }
 
 module.exports = {
-	get: getAll,
+	getAllTournamentsForUser: getAllTournamentsForUser,
+	getAll: getAll,
 	getOne: handleGetOne,
 	post: handlePost,
 	put: handlePut,

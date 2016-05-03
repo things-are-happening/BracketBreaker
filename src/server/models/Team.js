@@ -10,11 +10,11 @@ var teamSchema = new Schema({
 	players: Array,
 	owner: {
 		type: Schema.Types.ObjectId,
-		ref: `User`
+		ref: 'User'
 	},
 	tournaments: [{
 		type: Schema.Types.ObjectId,
-		ref: `Tournament`
+		ref: 'Tournament'
 	}]
 })
 
