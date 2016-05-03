@@ -3,21 +3,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var tournament = new Schema({
-	roundOneWinners: [
-		String
-	],
-	roundTwoWinners: [
-		String
-	],
-	roundThreeWinners: [
-		String
-	],
-	roundFourWinners: [
-		String
-	],
-	roundFiveWinners: [
-		String
-	],
 	sport: {
 		type: String,
 		required: true

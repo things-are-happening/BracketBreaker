@@ -67,68 +67,72 @@ app.controller("viewTournamentCtrl", function($scope, currentTourney, tournament
 			break;
 	}
 
-
-	// var matches = {
-	// 	roundOne: $scope.tournament.round.roundOne,
-	// 	roundTwo: $scope.tournament.round.roundTwo,
-	// 	roundThree: $scope.tournament.round.roundThree,
-	// 	roundFour: $scope.tournament.round.roundFour,
-	// 	roundFive: $scope.tournament.round.roundFive
-	// };
-
-	// var roundOneWinners = [];
-
-	// if(teamOneScore > teamTwoScore) {
-	// 	roundOneWinners.push(teamOne)
-	// } else if(teamOneScore < teamTwoScore) {
-	// 	roundOneWinners.push(teamTwo)
-	// } else {
-	// 	alert("ties no work....");
-	// }
-
-	// var roundTwoWinners = [];
-
-	// if(teamOneScore > teamTwoScore) {
-	// 	roundTwoWinners.push(teamOne)
-	// } else if(teamOneScore < teamTwoScore) {
-	// 	roundTwoWinners.push(teamTwo)
-	// } else {
-	// 	alert("ties no work....");
-	// }
-
-	// var roundThreeWinners = [];
-
-	// if(teamOneScore > teamTwoScore) {
-	// 	roundThreeWinners.push(teamOne)
-	// } else if(teamOneScore < teamTwoScore) {
-	// 	roundThreeWinners.push(teamTwo)
-	// } else {
-	// 	alert("ties no work....");
-	// }
-
-	// var roundFourWinners = [];
-
-	// if(teamOneScore > teamTwoScore) {
-	// 	roundOneWinners.push(teamOne)
-	// } else if(teamOneScore < teamTwoScore) {
-	// 	roundFourWinners.push(teamTwo)
-	// } else {
-	// 	alert("ties no work....");
-	// }
-
-	// var roundFiveWinners = [];
-
-	// if(teamOneScore > teamTwoScore) {
-	// 	roundOneWinners.push(teamOne)
-	// } else if(teamOneScore < teamTwoScore) {
-	// 	roundFiveWinners.push(teamTwo)
-	// } else {
-	// 	alert("ties no work....");
-	// }
-
-
-
 	$scope.saveMatchData = function(id){
+		var roundFiveWinners = []
+		var roundFourWinners = []
+		var roundThreeWinners = []
+		var roundTwoWinners = []
+		var roundOneWinners = [] 
+		for(var i = 0; i < $scope.tournament.round.roundFive.length; i++){
+			if($scope.tournament.round.roundFive[i].teamOneScore > $scope.tournament.round.roundFive[i].teamTwoScore){					
+				roundFiveWinners.push($scope.tournament.round.roundFive[i].teamOne)
+				console.log($scope.tournament.round.roundFive[i])
+			}
+			else if($scope.tournament.round.roundFive[i].teamOneScore < $scope.tournament.round.roundFive[i].teamTwoScore){
+				roundFiveWinners.push($scope.tournament.round.roundFive[i].teamTwo)
+			}
+		}
+		for(var i = 0; i < roundFiveWinners.length; i+=2){	  
+		  var oneMatch = {
+				teamOne: roundFiveWinners[i],
+				teamTwo: roundFiveWinners[i+1]					
+			}
+			if($scope.tournament.round.roundFour.length < currentTourney.data.teams / 2){
+				$scope.tournament.round.roundFour.push(oneMatch)
+			}
+			
+		}
+
+		for(var i = 0; i < $scope.tournament.round.roundFour.length; i++){
+			if($scope.tournament.round.roundFour[i].teamOneScore > $scope.tournament.round.roundFour[i].teamTwoScore){					
+				roundFourWinners.push($scope.tournament.round.roundFour[i].teamOne)
+				console.log($scope.tournament.round.roundFour[i])
+			}
+			else if($scope.tournament.round.roundFour[i].teamOneScore < $scope.tournament.round.roundFour[i].teamTwoScore){
+				roundFourWinners.push($scope.tournament.round.roundFour[i].teamTwo)
+			}
+		}
+		for(var i = 0; i < roundFourWinners.length; i+=2){	  
+		  var oneMatch = {
+				teamOne: roundFourWinners[i],
+				teamTwo: roundFourWinners[i+1]					
+			}
+			if($scope.tournament.round.roundThree.length < currentTourney.data.teams / 2){
+				$scope.tournament.round.roundThree.push(oneMatch)
+			}
+			
+		}
+
+		for(var i = 0; i < $scope.tournament.round.roundThree.length; i++){
+			if($scope.tournament.round.roundThree[i].teamOneScore > $scope.tournament.round.roundThree[i].teamTwoScore){					
+				roundThreeWinners.push($scope.tournament.round.roundThree[i].teamOne)
+				console.log($scope.tournament.round.roundThree[i])
+			}
+			else if($scope.tournament.round.roundThree[i].teamOneScore < $scope.tournament.round.roundThree[i].teamTwoScore){
+				roundThreeWinners.push($scope.tournament.round.roundThree[i].teamTwo)
+			}
+		}
+		for(var i = 0; i < roundThreeWinners.length; i+=2){	  
+		  var oneMatch = {
+				teamOne: roundThreeWinners[i],
+				teamTwo: roundThreeWinners[i+1]					
+			}
+			if($scope.tournament.round.roundTwo.length < currentTourney.data.teams / 2){
+				$scope.tournament.round.roundTwo.push(oneMatch)
+			}
+			
+		}
+
 		tournamentService.editTournament(id, $scope.tournament)
 	}
 
