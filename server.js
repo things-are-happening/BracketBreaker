@@ -108,7 +108,7 @@ app.use(session({
 //// OTHER ENDPOINTS ////
 
 app.get('/api/tournament/:id', tournament.getOne);
-// app.get('/api/tournament', tournament.get);
+app.get('/api/tournament', tournament.get);
 app.post('/api/tournament', tournament.post);
 app.put('/api/tournament/:id', tournament.put);
 app.delete('/api/tournament/:id', tournament.delete);

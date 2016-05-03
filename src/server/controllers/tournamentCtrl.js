@@ -97,7 +97,7 @@ var deleteTournament = function(req, res){
 module.exports = {
 	getAllTournamentsForUser: getAllTournamentsForUser,
 	postTournamentToUser: createTournamentAddToUserArray,
-	getAll: getAll,
+	getAll: get,
 	getOne: handleGetOne,
 	post: handlePost,
 	put: handlePut,
