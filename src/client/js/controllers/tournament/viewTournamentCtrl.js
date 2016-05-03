@@ -72,7 +72,8 @@ app.controller("viewTournamentCtrl", function($scope, currentTourney, tournament
 		var roundFourWinners = []
 		var roundThreeWinners = []
 		var roundTwoWinners = []
-		var roundOneWinners = [] 
+		var roundOneWinners = []
+
 		for(var i = 0; i < $scope.tournament.round.roundFive.length; i++){
 			if($scope.tournament.round.roundFive[i].teamOneScore > $scope.tournament.round.roundFive[i].teamTwoScore){					
 				roundFiveWinners.push($scope.tournament.round.roundFive[i].teamOne)
@@ -89,8 +90,7 @@ app.controller("viewTournamentCtrl", function($scope, currentTourney, tournament
 			}
 			if($scope.tournament.round.roundFour.length < currentTourney.data.teams / 2){
 				$scope.tournament.round.roundFour.push(oneMatch)
-			}
-			
+			}		
 		}
 
 		for(var i = 0; i < $scope.tournament.round.roundFour.length; i++){
@@ -109,8 +109,7 @@ app.controller("viewTournamentCtrl", function($scope, currentTourney, tournament
 			}
 			if($scope.tournament.round.roundThree.length < currentTourney.data.teams / 2){
 				$scope.tournament.round.roundThree.push(oneMatch)
-			}
-			
+			}	
 		}
 
 		for(var i = 0; i < $scope.tournament.round.roundThree.length; i++){
@@ -129,8 +128,45 @@ app.controller("viewTournamentCtrl", function($scope, currentTourney, tournament
 			}
 			if($scope.tournament.round.roundTwo.length < currentTourney.data.teams / 2){
 				$scope.tournament.round.roundTwo.push(oneMatch)
+			}		
+		}
+
+		for(var i = 0; i < $scope.tournament.round.roundTwo.length; i++){
+			if($scope.tournament.round.roundTwo[i].teamOneScore > $scope.tournament.round.roundTwo[i].teamTwoScore){					
+				roundTwoWinners.push($scope.tournament.round.roundTwo[i].teamOne)
+				console.log($scope.tournament.round.roundTwo[i])
 			}
-			
+			else if($scope.tournament.round.roundTwo[i].teamOneScore < $scope.tournament.round.roundTwo[i].teamTwoScore){
+				roundTwoWinners.push($scope.tournament.round.roundTwo[i].teamTwo)
+			}
+		}
+		for(var i = 0; i < roundTwoWinners.length; i+=2){	  
+		  var oneMatch = {
+				teamOne: roundTwoWinners[i],
+				teamTwo: roundTwoWinners[i+1]					
+			}
+			if($scope.tournament.round.roundOne.length < currentTourney.data.teams / 2){
+				$scope.tournament.round.roundOne.push(oneMatch)
+			}		
+		}
+
+		for(var i = 0; i < $scope.tournament.round.roundOne.length; i++){
+			if($scope.tournament.round.roundOne[i].teamOneScore > $scope.tournament.round.roundOne[i].teamTwoScore){					
+				roundOneWinners.push($scope.tournament.round.roundOne[i].teamOne)
+				console.log($scope.tournament.round.roundOne[i])
+			}
+			else if($scope.tournament.round.roundOne[i].teamOneScore < $scope.tournament.round.roundOne[i].teamTwoScore){
+				roundOneWinners.push($scope.tournament.round.roundOne[i].teamTwo)
+			}
+		}
+		for(var i = 0; i < roundOneWinners.length; i+=2){	  
+		  var oneMatch = {
+				teamOne: roundOneWinners[i],
+				teamTwo: roundOneWinners[i+1]					
+			}
+			if($scope.tournament.round.roundOne.length < currentTourney.data.teams / 2){
+				alert("congradulations team 1")
+			}		
 		}
 
 		tournamentService.editTournament(id, $scope.tournament)
