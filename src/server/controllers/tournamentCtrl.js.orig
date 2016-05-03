@@ -1,7 +1,7 @@
 var Tournament = require('./../models/Tournament');
 var User = require('./../models/User');
 //post query:
-var createTournamentAddToUserArray = function(req, res) {
+var handlePost = function(req, res) {
 	console.log(req.body);
     new Tournament(req.body).save(function(err, res) {
     	if(err) {
@@ -24,7 +24,7 @@ var createTournamentAddToUserArray = function(req, res) {
 })
  return res.status(200).end();    
 }
-////
+
 var getAllTournamentsForUser = function(req, res){
 	User.findById(req.params.id).populate('tournament').exec(function(err, queUser){
 		console.log(queUser)
@@ -35,54 +35,83 @@ var getAllTournamentsForUser = function(req, res){
 		return res.status(200).send(queUser);
 	})
 }
-///
-var handlePost = function(req, res) {
-	console.log(req.body);
-    new Tournament(req.body).save(function(error, response) {
-        console.log("response", response);
-        console.log("error", error);
-        if(error) {
-            res.status(500).json(error)
-        } else {
-            res.send(response)
-        }
-    })
-}
-
-var getAll = function(req, res){
-	Tournament.find().exec(function(err, response){
-		if (err) {
-			return res.status(500).send(err);
+var getAll = function(req, res) {
+	Tournament.find().exec(function(err, res) {
+		if(err) {
+			res.status(500).json(err);
 		}
-		res.send(response)
+		res.json(res)
 	})
-}
 
+}
+	// Tournament.find({ userId: req.user._id }, function(err, response){
+	// 	if (err) {
+	// 		return res.status(500).send(err);
+	// 	}
+	// 	res.send(response)
+	// })
+// }
 /////
 //find one query:
 var handleGetOne = function(req, res) {
-	Tournament.findById(req.params.id, function(error, response) {
+	Tournament.find({ userId: req.user._id, _id: req.params.tounament_id }, function(err, response) {
 		if(error) {
-			res.status(500).json(error)
+			res.status(500).json(err)
 		} else {
 			res.json(response)
 		}
 	})
 }
 /////
-//update query:
+// update query:
 var handlePut = function(req, res) {
+<<<<<<< HEAD
+	Tournament.update({ userId: req.user._id, _id: req.params.tounament_id }, /*{ quantity: req.body.quantity },*/ function(err, response) {
+		if(error) {
+			res.status(500).json(err)
+=======
 	Tournament.findByIdAndUpdate(req.params.id, req.body, function(error, response) {
 		console.log("req", req)
 		if(error) {
 			console.log(error)
 			res.status(500).json(error)
+>>>>>>> 978ae987ae9740aca36809264c9c74a944ab552b
 		} else {
 			console.log("backend response", response)
 			res.json(response)
 		}
 	})
 }
+
+// var handlePut = function(req, res) {
+// 	Tournament.update({ userId: req.user._id, _id: req.params.tounament_id }, { quantity: req.body.quantity }, function(err, num, raw) {
+// 		if (err)
+// 			res.send(err);
+
+//     // Update the existing tournament quantity
+//     // tournament.quantity = req.body.quantity;
+
+//     // Save the beer and check for errors
+//     tournament.save(function(err) {
+//     	if (err)
+//     		res.send(err);
+
+//     	res.json(beer);
+//     });
+// });
+// };
+/////
+var handleDelete = function(req, res) {
+	Tournament.remove({ userId: req.user._id, _id: req.params.tournament_id }, function(err) {
+		if(error) {
+			res.status(500).json(err)
+		} else {
+			res.json({ message: 'Tournament removed from the locker room!' })
+		}
+	})
+}
+////
+
 /////
 var deleteTournament = function(req, res){
 	Tournament.findByIdAndRemove(req.params.id, function(error, response){
@@ -96,11 +125,10 @@ var deleteTournament = function(req, res){
 
 module.exports = {
 	getAllTournamentsForUser: getAllTournamentsForUser,
-	postTournamentToUser: createTournamentAddToUserArray,
 	getAll: getAll,
 	getOne: handleGetOne,
 	post: handlePost,
 	put: handlePut,
-	// delete: handleDelete,
+	delete: handleDelete,
 	delete: deleteTournament
 };

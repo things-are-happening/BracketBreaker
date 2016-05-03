@@ -4,6 +4,7 @@
 	</form>
 	<div class='active dashboardPanel row'>
 		<h2 class='page-header'> Active Tournaments </h2>
+		<button onClick='console.log(user)'></button>
 		<div class='match-cards-body'>
 			<div>
 				<a ui-sref='addTournament'>
@@ -34,6 +35,7 @@
 							<h5 ng-bind="tournament.end | date:'MM/dd/yyyy'"> {{tournament.end}} </h5>
 						</div>
 						<h5> {{tournament.location}} </h5>
+						<h5> {{tournament.owner}} </h5>
 					</div>
 				</div>
 			</div>
@@ -41,7 +43,11 @@
 	</div>
 	<div class='historical dashboardPanel row'>
 		<h2 class='page-header'> Historical Tournaments </h2>
+<<<<<<< HEAD
+		<div class='col-sm-3'>
+=======
 		<div class='historicalPanels col-sm-3'>
+>>>>>>> 978ae987ae9740aca36809264c9c74a944ab552b
 			<h2> FIFA World Cup 2014 </h2>
 			<h3> Soccer </h3>
 			<h5> Time and place </h5>

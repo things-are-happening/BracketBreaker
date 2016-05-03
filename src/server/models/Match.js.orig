@@ -3,6 +3,13 @@ var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
 var match = new Schema({
+<<<<<<< HEAD
+	round: Array,
+	team1Score: Number,
+	team2Score: Number,
+	date: Date
+},{timestamp: true, versionKey: false})
+=======
 	// round: Array,
 	// score: Number,
 	// date: Date,
@@ -18,6 +25,7 @@ var match = new Schema({
 	teamTwoScore: Number
 
 })
+>>>>>>> 978ae987ae9740aca36809264c9c74a944ab552b
 
 
 module.exports = mongoose.model('Match', match)

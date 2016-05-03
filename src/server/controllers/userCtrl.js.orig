@@ -1,3 +1,28 @@
+<<<<<<< HEAD
+var User = require('../models/User');
+
+var addUsers = function(req, res) {
+  var user = new User({
+    name: req.body.name,
+    userName: req.body.userName,
+    email: req.body.email,
+    password: req.body.password
+  });
+
+  user.save(function(err) {
+    if (err)
+      return res.send(err);
+
+    res.send({ 
+      message: 'New BracketBreaker champion added to the locker room!',
+      newUser: user
+     });
+  });
+};
+//// in the front-end, to acces the user: respnse.data.newUser
+////////// 
+=======
+/// FILES ///
 var User = require('../models/User.js');
 
 
@@ -34,12 +59,18 @@ module.exports = {
             }
         });
     },
+>>>>>>> 978ae987ae9740aca36809264c9c74a944ab552b
 
-    logout: function(req, res) {
-        req.logout();
-        res.redirect('/');
-    },
+var getUsers = function(req, res) {
+  User.find(function(err, users) {
+    if (err)
+      res.send(err);
 
+<<<<<<< HEAD
+    res.json(users);
+  });
+};
+=======
     isAuth: function(req, res, next) {
         if (req.user) {
             next();
@@ -50,6 +81,11 @@ module.exports = {
 
         }
     }
+>>>>>>> 978ae987ae9740aca36809264c9c74a944ab552b
 
 
+module.exports = {
+  post: addUsers,
+  get: getUsers
+  
 };

@@ -1,5 +1,6 @@
 // load all the things we need
 var LocalStrategy = require('passport-local').Strategy;
+<<<<<<< HEAD
 var FacebookStrategy = require('passport-facebook').Strategy;
 var TwitterStrategy  = require('passport-twitter').Strategy;
 var GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
@@ -335,3 +336,41 @@ module.exports = function (passport) {
         }));
 
 };
+=======
+var User = require('../models/User.js');
+
+
+passport.use('local-auth', new LocalStrategy(function (username, password, done) {
+
+    User.findOne({
+      username: username
+    })
+      .exec(function(err, user) {
+        if (err) {
+          done(err);
+        }
+        if (user) {
+          if (user.validatePassword(password)) {
+            return done(null, user);
+          } else {
+            return done(null, false);
+          }
+        }
+        return done(null, false);
+      });
+  }));
+
+
+//////////saves session////////////
+passport.serializeUser(function(user, done) {
+  done(null, user._id);
+});
+passport.deserializeUser(function(_id, done) {
+  User.findById(_id, function(err, user) {
+    done(err, user);
+  });
+});
+
+
+module.exports = passport;
+>>>>>>> 978ae987ae9740aca36809264c9c74a944ab552b

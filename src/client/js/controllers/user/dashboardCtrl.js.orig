@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+app.controller("dashboardCtrl", function($scope, tournamentsList, userService){
+	$scope.tournaments = tournamentsList;
+	
+})
+=======
 app.controller("dashboardCtrl", function($scope, tournamentsList, userService, tournamentService){
 	$scope.tournaments = tournamentsList.data;
 	$scope.signUpUsers = function(user){
@@ -21,3 +27,4 @@ app.controller("dashboardCtrl", function($scope, tournamentsList, userService, t
 		})
 	}
 })
+>>>>>>> 978ae987ae9740aca36809264c9c74a944ab552b

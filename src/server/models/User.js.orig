@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // load the things we need
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
@@ -46,13 +47,36 @@ userSchema.methods.validPassword = function(password) {
 
 // create the model for users and expose it to our app
 module.exports = mongoose.model('User', userSchema);
+=======
+var mongoose = require('mongoose');
+var bcrypt = require('bcryptjs');
+var Schema = mongoose.Schema;
+
+var User = Schema({
+
+	  username: {type: String, required: true, unique:true},
+    password: {type: String, required: true}
+
+});
+
+
+///////////bcrypt/////////////
+User.methods.generateHash = function( password ) {
+	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+User.methods.validatePassword = function( password ) {
+	return bcrypt.compareSync(password, this.password);
+};
+
 
 /////////////saves hashed pw, not real pw///////////////
-// User.pre('save', function(next){
-//  var user = this;
-//  if(!user.isModified('password')) return next();
-//  user.password = User.methods.generateHash(user.password);
-//  next();
-// });
+User.pre('save', function(next){
+ var user = this;
+ if(!user.isModified('password')) return next();
+ user.password = User.methods.generateHash(user.password);
+ next();
+});
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', User);
+>>>>>>> 978ae987ae9740aca36809264c9c74a944ab552b

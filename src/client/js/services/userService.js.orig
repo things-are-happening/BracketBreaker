@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+app.service('userService', function($http, $q){
+  this.deleteTournament = function(id){
+  	console.log("userService id", id)
+  	return $http.delete("/api/tournament/" + id);
+  }
+  this.getTournaments = function(){
+  	return $http.get("/api/tournaments")
+  }
+  this.getTournamentsForUser = function(Usersid) {
+  	return $http.get("/api/tournaments/" + Usersid);
+  }
+})
+=======
 app.service('userService', function($http, $state) {
 
   this.loginUser = function(username, password) {
@@ -41,3 +55,4 @@ app.service('userService', function($http, $state) {
     };
 
   });
+>>>>>>> 978ae987ae9740aca36809264c9c74a944ab552b

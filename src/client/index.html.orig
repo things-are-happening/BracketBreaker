@@ -21,11 +21,14 @@
           </a>
         </div>
       <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
         <li>
           <h3> Hello {{user}} </h3>
           <!-- <a href='/login'>Actual Login</a> -->
+=======
         <li ng-controller="userCtrl">
           <a ui-sref='home' ng-click="logout()">Logout</a>
+>>>>>>> 978ae987ae9740aca36809264c9c74a944ab552b
         </li>
       </ul>
       </div>
@@ -46,6 +49,8 @@
   <script type="text/javascript" src="./js/controllers/tournament/tournamentCtrl.js"></script>
   <script type="text/javascript" src="./js/controllers/tournament/viewTournamentCtrl.js"></script>
   <script type="text/javascript" src="./js/controllers/user/dashboardCtrl.js"></script>
+<<<<<<< HEAD
+=======
   <script type="text/javascript" src="./js/controllers/user/userCtrl.js" charset="utf-8"></script>
   <script type="text/javascript" src="./js/services/userService.js" charset="utf-8"></script>
   <script type="text/javascript" src="./js/controllers/tournament/editTournamentCtrl.js"></script>
@@ -54,6 +59,7 @@
   <script src="./js/services/userService.js" charset="utf-8"></script>
   <script src="./js/controllers/user/userCtrl.js" charset="utf-8"></script>
   <script src="./js/services/userService.js" charset="utf-8"></script>
+>>>>>>> 978ae987ae9740aca36809264c9c74a944ab552b
   <script type="text/javascript" src="./js/services/tournamentService.js"></script>
 
   </script>

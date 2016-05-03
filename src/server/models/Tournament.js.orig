@@ -39,6 +39,13 @@ var tournament = new Schema({
 	teamNames:{
 		type: Array
 	},
+<<<<<<< HEAD
+	match: {
+		type: Schema.Types.ObjectId,
+		ref: 'Match'
+	},
+	organizer: {
+=======
 	round: {
 		roundOne: [{
 			teamOne: String,
@@ -72,6 +79,7 @@ var tournament = new Schema({
 		}] 
 },
 	owner: {
+>>>>>>> 978ae987ae9740aca36809264c9c74a944ab552b
 		type: Schema.Types.ObjectId,
 		ref: 'User'
 	}
