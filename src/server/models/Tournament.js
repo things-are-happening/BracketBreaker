@@ -3,21 +3,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var tournament = new Schema({
-	roundOneWinners: [
-		String
-	],
-	roundTwoWinners: [
-		String
-	],
-	roundThreeWinners: [
-		String
-	],
-	roundFourWinners: [
-		String
-	],
-	roundFiveWinners: [
-		String
-	],
 	sport: {
 		type: String,
 		required: true
@@ -42,34 +27,39 @@ var tournament = new Schema({
 	round: {
 		roundOne: [{
 			teamOne: String,
-			teamOneScore: 0,
+			teamOneScore: {type: Number, default: 0},
 			teamTwo: String,
-			teamTwoScore: 0,
+			teamTwoScore: {type: Number, default: 0},
+			winners: [String]
 		}],
 		roundTwo: [{
 			teamOne: String,
 			teamOneScore: {type: Number, default: 0},
 			teamTwo: String,
 			teamTwoScore: {type: Number, default: 0},
+			winners: [String]
 		}],
 		roundThree: [{
 			teamOne: String,
 			teamOneScore: {type: Number, default: 0},
 			teamTwo: String,
 			teamTwoScore: {type: Number, default: 0},
+			winners: [String]
 		}],
 		roundFour: [{
 			teamOne: String,
 			teamOneScore: {type: Number, default: 0},
 			teamTwo: String,
 			teamTwoScore: {type: Number, default: 0},
+			winners: [String]
 		}],
 		roundFive: [{
 			teamOne: String,
 			teamOneScore: {type: Number, default: 0},
 			teamTwo: String,
 			teamTwoScore: {type: Number, default: 0},
-		}] 
+			winners: [String]
+		}]
 },
 	owner: {
 		type: Schema.Types.ObjectId,
