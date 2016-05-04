@@ -15,14 +15,12 @@
 			<div ng-repeat='tournament in tournaments | filter:search' class='match-link'>
 				<div class='match col-md-6 col-xs-6'>
 				<div class='flex space-between'>
-					<button class='matchButtons' ui-sref="edit({id:tournament._id})">edit</button>
-					<button class='matchButtons' ng-click="show=!show">
-						<span aria-hidden="true"> delete </span>
-					</button>
+					<button class='matchButtons btn btn-xs' ui-sref="edit({id:tournament._id})">edit</button>
+					<button class='deleteButton btn btn-xs' ng-click="show=!show">delete</button>
 					<form ng-show="show">
-						<h5>Are you sure?</h5>
-						<button class='matchButtons' ng-click="deleteTournament(tournament._id)">Yes</button>
-						<button class='matchButtons' ng-click="show=!show">No</button>
+						<span>Are you sure?</span>
+						<button class='deleteButton btn btn-xs btn-danger' ng-click="deleteTournament(tournament._id)">Yes</button>
+						<button class='matchButtons btn btn-xs' ng-click="show=!show">No</button>
 					</form>
 				</div>
 					<div class='match-body flex direction-column vertical-center' ui-sref='viewTournament({id:tournament._id})'>

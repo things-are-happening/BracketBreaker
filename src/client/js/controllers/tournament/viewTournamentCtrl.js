@@ -155,7 +155,6 @@ app.controller("viewTournamentCtrl", function($scope, currentTourney, tournament
 
 	$scope.saveRoundFive = function(id){
 		var roundFiveWinners = []
-		tournamentService.editTournament(id, $scope.tournament)
 
 		for(var i = 0; i < $scope.tournament.round.roundFive.length; i++){
 			if($scope.tournament.round.roundFive[i].teamOneScore > $scope.tournament.round.roundFive[i].teamTwoScore){					
@@ -175,5 +174,6 @@ app.controller("viewTournamentCtrl", function($scope, currentTourney, tournament
 				$scope.tournament.round.roundFour.push(oneMatch)
 			}		
 		}
+		tournamentService.editTournament(id, $scope.tournament)
 	}
 })

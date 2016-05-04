@@ -12,6 +12,9 @@
 .dates{
 	width: 200px;
 }
+.deleteButton {
+	background-color: red;
+}
 
 .matchButtons{
 	background-color: transparent;
