@@ -69,6 +69,7 @@ app.controller("viewTournamentCtrl", function($scope, currentTourney, tournament
 
 	$scope.saveRoundOne = function(id){
 		var roundOneWinners = []		
+		console.log($scope.tournament.round.roundOne)
 		for(var i = 0; i < $scope.tournament.round.roundOne.length; i++){
 			if($scope.tournament.round.roundOne[i].teamOneScore > $scope.tournament.round.roundOne[i].teamTwoScore){					
 				roundOneWinners.push($scope.tournament.round.roundOne[i].teamOne)

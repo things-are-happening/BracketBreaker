@@ -16,6 +16,10 @@
 	background-color: red;
 }
 
+#roundOne{
+	width: 100vw;
+}
+
 .matchButtons{
 	background-color: transparent;
 }
