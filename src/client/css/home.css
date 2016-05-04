@@ -1,4 +1,4 @@
-/*.form-signin
+.form-signin
 {
     max-width: 330px;
     padding: 15px;
@@ -73,9 +73,9 @@
     display: block;
     margin-top: 10px;
 }
-*/
 
-body {
+
+/*body {
   background: #dbe6dd;
   text-align: center;
   -webkit-transform: translateZ(0);
@@ -122,3 +122,4 @@ body {
     position: absolute;
     top:300px;
 }
+*/

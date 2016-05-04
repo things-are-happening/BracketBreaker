@@ -28,7 +28,7 @@ app.set('superSecret', config.secret);
 app.use(cors());
 app.use(express.static(__dirname + '/src/client'));
 app.use(session({secret:config.secret}));
-app.use(passport.initialize());
+app.use(passport.initialize());routes
 app.use(passport.session());
 app.use(flash());
 
@@ -55,7 +55,7 @@ app.get('/api/team:id', team.getOne);
 app.post('/api/team', team.post);
 app.put('/api/team', team.put);
 app.delete('/api/team/:id', team.delete);
-
+//////
 //connection
 app.listen(port, function() {
 	console.log('Listening on ' + port);

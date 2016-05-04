@@ -4,22 +4,63 @@
         <title>Node Authentication</title>
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-        <style>
-            body        { padding-top:80px; word-wrap:break-word; }
-        </style>
     </head>
     <body>
-        <div class="container">
+    <header style="background-color: #CC0000">
+    <nav class="navbar navbar-static">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a ui-sref="dashboard" class="navbar-brand">
+            <!-- <strong>[ ]</strong> -->
+            <img style=" max-height: 60px; max-width: 60px; margin-top: 7px; padding: 0px; position: absolute; top: 0;" src="./assets/logo.png"/>  
+          </a>
+        </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <h3> Hello {{user}} </h3>
+          <a href='/login'>Logout</a>
+        <li ng-controller="userCtrl">
+          <!-- <a ui-sref='home' ng-click="logout()">Logout</a> -->
+        </li>
+      </ul>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+<ul class="nav" id="myTab">
+    <li class="active"><h1>Profile</h1></a></li>
+</ul>
+ 
+<div class="tab-content">
+    <div class="tab-pane active" id="home"></div>
+</div>
+</div>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10"><h1>{{user}}</h1></div>
+        <div class="col-sm-2"><img title="profile image"
+        class="pull-right" class="img-circle img-responsive" src="assets/logo.png"</div>
 
-            <div class="page-header text-center">
-                <h1><span class="fa fa-anchor"></span> Profile Page</h1>
-                <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-            </div>
-
-            <div class="row">
-
-                <!-- LOCAL INFORMATION -->
-                <div class="col-sm-6">
+    </div>
+    <div class="row">
+        <div class="col-sm-3"><!--left col-->
+              
+          <!-- <ul class="list-group">
+            <li class="list-group-item text-muted">Profile</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> 2.13.2014</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> Yesterday</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Real name</strong></span> Joseph Doe</li>
+            
+          </ul>  -->
+               
+          <div class="panel panel-default">
+            <div class="panel-heading">Tournaments Managing<i class="fa fa-link fa-1x"></i></div>
+            <div class="panel-body">{{}}</div>
+          </div>
+          
+          <!-- LOCAL INFORMATION -->
+              <!--   <div class="col-sm-6">
                     <div class="well">
                         <h3><span class="fa fa-user"></span> Local</h3>
 
@@ -30,7 +71,139 @@
                         </p>
                         <a href="/#/dashboard" ng-Click="localStorage.setItem('user', user_.id);" class="btn btn-default btn-sm">My Tournaments</a>
                     </div>
-                </div>
+                </div> -->
+          
+          <ul class="list-group">
+            <!-- <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li> -->
+          </ul> 
+               
+          <!-- <div class="panel panel-default">
+            <div class="panel-heading">Social Media</div>
+            <div class="panel-body">
+                <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
+            </div>
+          </div> -->
+          
+        </div><!--/col-3-->
+        <div class="col-sm-9">
+          
+          <ul class="nav" id="myTab">
+            <li class="active"></a></li>
+          </ul>
+              
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <!-- <th>#</th> -->
+                      <a href="/#/dashboard" ng-Click="localStorage.setItem('user', user_.id);" class="btn btn-default btn-sm"><h1>My Tournaments</h1></a>
+              <!--       </tr>
+                  </thead>
+                  <tbody id="items">
+                    <tr>
+                      <td>1</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                    </tr>
+                     <tr>
+                      <td>8</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                    </tr>
+                    <tr>
+                      <td>9</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                    </tr>
+                    <tr>
+                      <td>10</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                      <td>Table cell</td>
+                    </tr>
+                  </tbody>
+                </table>   -->  
+              </div><!--/tab-pane-->
+          </div><!--/tab-content-->
+
+        </div><!--/col-9-->
+    </div><!--/row-->  
+             
 
             </div>
 

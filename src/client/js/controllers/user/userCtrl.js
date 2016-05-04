@@ -14,6 +14,4 @@ app.controller('userCtrl', function($scope, $state, userService){
         });
       };
 
-
-
 });
