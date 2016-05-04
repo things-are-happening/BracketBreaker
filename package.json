@@ -1,5 +1,5 @@
 {
-  "name": "lets-do-this",
+  "name": "bracketbreaker",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/things-are-happening/lets-do-this.git"
+    "url": "git+https://github.com/things-are-happening/bracketbreaker.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/things-are-happening/lets-do-this/issues"
+    "url": "https://github.com/things-are-happening/bracketbreaker/issues"
   },
-  "homepage": "https://github.com/things-are-happening/lets-do-this#readme",
+  "homepage": "https://github.com/things-are-happening/bracketbreaker#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
