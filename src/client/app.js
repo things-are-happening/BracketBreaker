@@ -7,8 +7,8 @@ app.config(function($stateProvider, $urlRouterProvider){
     .state('home', {
       url: '/',
       views: {
-        "content": {
-          controller: 'dashboardCtrl',
+        "content@": {
+          controller: 'userCtrl',
           templateUrl: './templates/home/home.html'
         }
       }
@@ -25,6 +25,21 @@ app.config(function($stateProvider, $urlRouterProvider){
       resolve: {
         tournamentsList: function(tournamentService){
           return tournamentService.getTournaments();
+        }
+      }
+    })
+
+    .state('edit', {
+      url:'/dashboard/:id/edit',
+      views:{
+        "content": {
+          controller: 'editTournamentCtrl',
+          templateUrl: './templates/tournament/edit.html'
+        }
+      },
+      resolve: {
+        currentTourney: function(tournamentService, $stateParams){
+          return tournamentService.getTournamentById($stateParams.id);
         }
       }
     })
@@ -65,18 +80,26 @@ app.config(function($stateProvider, $urlRouterProvider){
         currentTourney: function(tournamentService, $stateParams){
           return tournamentService.getTournamentById($stateParams.id);
         }
-        // ,
-        // function(tournamentService, $stateParams){
-        //   return tournamentService.getMatchesById($stateParams.id)
-        // }
       }
     })
+
+    .state('login', {
+      url: '/login',
+      views: {
+        "content@" : {
+          controller: 'userCtrl',
+          templateUrl: './templates/home/home.html'
+        }
+      }
+    })
+
     .state('signup', {
       url: '/signup',
       views: {
         "content@" : {
+          controller: 'dashboardCtrl',
           templateUrl: './templates/home/signup.html'
         }
-    }
-  })
+      }
+    })
 })

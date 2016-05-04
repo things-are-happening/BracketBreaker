@@ -36,12 +36,20 @@
 						<h5> {{tournament.location}} </h5>
 					</div>
 				</div>
+<<<<<<< HEAD
+			</a>
+=======
 			</div>
+>>>>>>> b1fb53d46773d37d168b664834806973254b9eda
 		</div>
 	</div>
 	<div class='historical dashboardPanel row'>
 		<h2 class='page-header'> Historical Tournaments </h2>
+<<<<<<< HEAD
+		<div class='col-sm-3'>
+=======
 		<div class='historicalPanels col-sm-3'>
+>>>>>>> b1fb53d46773d37d168b664834806973254b9eda
 			<h2> FIFA World Cup 2014 </h2>
 			<h3> Soccer </h3>
 			<h5> Time and place </h5>

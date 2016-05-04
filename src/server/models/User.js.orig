@@ -46,3 +46,16 @@ userSchema.methods.validPassword = function(password) {
 
 // create the model for users and expose it to our app
 module.exports = mongoose.model('User', userSchema);
+<<<<<<< HEAD
+
+/////////////saves hashed pw, not real pw///////////////
+// User.pre('save', function(next){
+//  var user = this;
+//  if(!user.isModified('password')) return next();
+//  user.password = User.methods.generateHash(user.password);
+//  next();
+// });
+
+module.exports = mongoose.model('User', userSchema);
+=======
+>>>>>>> b1fb53d46773d37d168b664834806973254b9eda

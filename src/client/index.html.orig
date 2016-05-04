@@ -21,10 +21,14 @@
           </a>
         </div>
       <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
         <li>
           <h3> Hello {{user}} </h3>
           <!-- <a href='/login'>Actual Login</a> -->
+        <li ng-controller="userCtrl()">
+=======
         <li ng-controller="userCtrl">
+>>>>>>> b1fb53d46773d37d168b664834806973254b9eda
           <a ui-sref='home' ng-click="logout()">Logout</a>
         </li>
       </ul>
@@ -46,7 +50,19 @@
   <script type="text/javascript" src="./js/controllers/tournament/tournamentCtrl.js"></script>
   <script type="text/javascript" src="./js/controllers/tournament/viewTournamentCtrl.js"></script>
   <script type="text/javascript" src="./js/controllers/user/dashboardCtrl.js"></script>
+<<<<<<< HEAD
   <script type="text/javascript" src="./js/services/tournamentService.js"></script>
 
   </script>
+=======
+  <script type="text/javascript" src="./js/controllers/user/userCtrl.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./js/services/userService.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./js/controllers/tournament/editTournamentCtrl.js"></script>
+  <script type="text/javascript" src="./js/controllers/user/dashboardCtrl.js"></script>
+  <script src="./js/controllers/user/userCtrl.js" charset="utf-8"></script>
+  <script src="./js/services/userService.js" charset="utf-8"></script>
+  <script src="./js/controllers/user/userCtrl.js" charset="utf-8"></script>
+  <script src="./js/services/userService.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./js/services/tournamentService.js"></script>
+>>>>>>> b1fb53d46773d37d168b664834806973254b9eda
 </html>

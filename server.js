@@ -41,7 +41,7 @@ app.get('/api/tournament', tournament.get);
 app.post('/api/tournament', tournament.post);
 app.put('/api/tournament/:id', tournament.put);
 app.delete('/api/tournament/:id', tournament.delete);
-app.post('api/tourrsnament/:id', tournament.postTournamentToUser);
+app.post('api/tournament/:id', tournament.postTournamentToUser);
 app.get('/api/tournament/:id', tournament.getAllTournamentsForUser);
 //////
 app.get('/api/match', match.getAll);

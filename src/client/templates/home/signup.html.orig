@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+<h1> Suck </h1>
+=======
 <form action="/signup" method="post">
     <div class="form-group">
       <label>Name</label>
@@ -17,3 +20,4 @@
 
 <p>Already have an account? <a ui-sref="login">Login</a></p>
 <p>Or go <a href="/">home</a>.</p>
+>>>>>>> b1fb53d46773d37d168b664834806973254b9eda
