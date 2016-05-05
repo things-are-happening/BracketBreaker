@@ -24,13 +24,13 @@
 		<div class='match-cards-body'>
 			<div>
 				<a ui-sref='addTournament'>
-					<div class='match col-md-6 col-xs-12 vertical-center flex space-around'>
+					<div class='match col-md-6 col-xs-12 vertical-center flex space-around hvr-grow'>
 						<i class='fa fa-plus fa-5x'></i>
 					</div>
 				</a>
 			</div>
 			<div ng-repeat='tournament in tournaments | filter:search' class='match-link'>
-				<div class='match col-md-6 col-xs-6'>
+				<div class='match col-md-6 col-xs-6 animated bounceInLeft'>
 				<div class='flex space-between'>
 					<button class='matchButtons btn btn-xs hvr-grow' ui-sref="edit({id:tournament._id})">edit</button>
 					<button class='deleteButton btn btn-xs hvr-grow' ng-click="show=!show">delete</button>

@@ -1,6 +1,7 @@
 app.controller("viewTournamentCtrl", function($scope, currentTourney, tournamentService){
 	var teams = currentTourney.data.teamNames
 	$scope.tournament = currentTourney.data
+	var winner;
 
 	//populate initial tab with matches
 
@@ -72,14 +73,16 @@ app.controller("viewTournamentCtrl", function($scope, currentTourney, tournament
 		for(var i = 0; i < $scope.tournament.round.roundOne.length; i++){
 			if($scope.tournament.round.roundOne[i].teamOneScore > $scope.tournament.round.roundOne[i].teamTwoScore){
 				roundOneWinners.push($scope.tournament.round.roundOne[i].teamOne)
-				alert("congratulations team 1")
+				winner = $scope.tournament.round.roundOne[i].teamOne;
+				swal("Congratulations " + "\n" + winner + "!")
 			}
 			else if($scope.tournament.round.roundOne[i].teamOneScore < $scope.tournament.round.roundOne[i].teamTwoScore){
 				roundOneWinners.push($scope.tournament.round.roundOne[i].teamTwo)
-				alert("congratulations team 2")
+				winner = $scope.tournament.round.roundOne[i].teamTwo;
+				swal("Congratulations " + "\n" + winner + "!")
 			}
 			else{
-				alert("is a tie")
+				swal("It's a tie!")
 			}
 		}
 		tournamentService.editTournament(id, $scope.tournament)
