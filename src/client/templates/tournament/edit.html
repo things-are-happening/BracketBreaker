@@ -1,3 +1,20 @@
+<header>
+	<nav class="navbar navbar-static">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a ui-sref="dashboard" class="navbar-brand">
+					<img class="navLogo" src="./assets/logo.png"/>
+				</a>
+			</div>
+		<ul class="nav navbar-nav navbar-right">
+			<li ng-controller="userCtrl">
+				<button class="hvr-grow btn btn-default logoutButton" ui-sref='home' ng-click="logout()">Logout</button>
+			</li>
+		</ul>
+		</div>
+	</nav>
+</header>
+
 <section class='addBodyMain container-fluid'>
 		<form class='newTournamentForm center-text row flex direction-column'>
 			<h1>
@@ -122,6 +139,6 @@
 				</form>
 			</div>
 			<br>
-			<button class='btn btn-default form-control' type='submit' ng-click='editTournament(tournament.data._id, tournament.data)'> Lets gooooooo </button>
+			<button class='btn btn-default form-control hvr-grow' type='submit' ng-click='editTournament(tournament.data._id, tournament.data)'> Lets gooooooo </button>
 		</form>
 </section>

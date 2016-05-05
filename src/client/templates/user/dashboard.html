@@ -1,3 +1,20 @@
+<header>
+	<nav class="navbar navbar-static">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a ui-sref="dashboard" class="navbar-brand">
+					<img class="navLogo" src="./assets/logo.png"/>
+				</a>
+			</div>
+		<ul class="nav navbar-nav navbar-right">
+			<li ng-controller="userCtrl">
+				<button class=" logoutButton btn btn-default hvr-grow" ui-sref='home' ng-click="logout()">Logout</button>
+			</li>
+		</ul>
+		</div>
+	</nav>
+</header>
+
 <div class='dashboardBodyMain container-fluid'>
 	<form>
 		<input type='search' class='tournamentSearch form-control' ng-model='search' placeholder='Search Tournaments'/>
@@ -15,12 +32,12 @@
 			<div ng-repeat='tournament in tournaments | filter:search' class='match-link'>
 				<div class='match col-md-6 col-xs-6'>
 				<div class='flex space-between'>
-					<button class='matchButtons btn btn-xs' ui-sref="edit({id:tournament._id})">edit</button>
-					<button class='deleteButton btn btn-xs' ng-click="show=!show">delete</button>
+					<button class='matchButtons btn btn-xs hvr-grow' ui-sref="edit({id:tournament._id})">edit</button>
+					<button class='deleteButton btn btn-xs hvr-grow' ng-click="show=!show">delete</button>
 					<form ng-show="show">
 						<span>Are you sure?</span>
-						<button class='deleteButton btn btn-xs btn-danger' ng-click="deleteTournament(tournament._id)">Yes</button>
-						<button class='matchButtons btn btn-xs' ng-click="show=!show">No</button>
+						<button class='deleteButton btn btn-xs btn-danger hvr-grow' ng-click="deleteTournament(tournament._id)">Yes</button>
+						<button class='matchButtons btn btn-xs hvr-grow' ng-click="show=!show">No</button>
 					</form>
 				</div>
 					<div class='match-body flex direction-column vertical-center' ui-sref='viewTournament({id:tournament._id})'>
@@ -35,14 +52,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<div class='historical dashboardPanel row'>
-		<h2 class='page-header'> Historical Tournaments </h2>
-		<div class='historicalPanels col-sm-3'>
-			<h2> FIFA World Cup 2014 </h2>
-			<h3> Soccer </h3>
-			<h5> Brazil </h5>
 		</div>
 	</div>
 </div>
