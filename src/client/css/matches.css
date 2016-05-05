@@ -12,6 +12,13 @@
 .dates{
 	width: 200px;
 }
+.deleteButton {
+	background-color: red;
+}
+
+#roundOne{
+	width: 100vw;
+}
 
 .matchButtons{
 	background-color: transparent;

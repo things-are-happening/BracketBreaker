@@ -11,7 +11,8 @@ var express = require('express'),
 	cookieParser = require('cookie-parser'),
 	session = require('express-session'),
 	ejs = require('ejs'),
-	port = 9000
+	port = process.env.PORT || 9000,
+	mongoUri = 'mongodb://localhost:27017/tournament';
 
 var tournament = require('./src/server/controllers/tournamentCtrl');
 var match = require('./src/server/controllers/matchCtrl');

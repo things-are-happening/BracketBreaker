@@ -21,10 +21,10 @@
 	<div class="flex space-between container">
 		<ul class="nav nav-tabs" role="tablist">
 			<li class="bracketTab" id="round1tab" ng-if="tournament.teams >= 32">
-				<a href="#roundFive" data-toggle="tab" aria-controls="roundFive" role="tab" target="_self"> Round 1 </a>
+				<a href="#roundFive" data-toggle="tab" aria-controls="roundFive" role="tab" target="_self"> Best of 32 </a>
 			</li>
 			<li class="bracketTab" id="round2tab" ng-if="tournament.teams >= 16">
-				<a href="#roundFour" data-toggle="tab" aria-controls="roundFour" role="tab" target="_self"> Round 2 </a>
+				<a href="#roundFour" data-toggle="tab" aria-controls="roundFour" role="tab" target="_self"> Best of 16 </a>
 			</li>
 			<li class="bracketTab" id="round3tab" ng-if="tournament.teams >= 8">
 				<a href="#roundThree" data-toggle="tab" aria-controls="roundThree" role="tab" target="_self"> Quarter-finals </a>
@@ -160,7 +160,7 @@
 		</div>
 	</div>
 
-	<div class="container-fluid view-body tab-pane fade in" id="roundOne" role="tabpanel" aria-labelledby="roundOne-tab">
+	<div class="container-fluid view-body tab-pane fade in flex space-around" id="roundOne" role="tabpanel" aria-labelledby="roundOne-tab">
 		<div class="col-md-3 col-sm-6" ng-repeat="match in tournament.round.roundOne">
 			<a data-toggle="modal" data-target="#matchModalOne">
 				<div class="match-panel">
