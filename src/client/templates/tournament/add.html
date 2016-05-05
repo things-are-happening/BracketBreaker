@@ -1,3 +1,21 @@
+<header>
+	<nav class="navbar navbar-static">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a ui-sref="dashboard" class="navbar-brand">
+					<img class="navLogo" src="./assets/logo.png"/>
+				</a>
+			</div>
+		<ul class="nav navbar-nav navbar-right">
+			<li ng-controller="userCtrl">
+				<a ui-sref='home' ng-click="logout()">Logout</a>
+			</li>
+		</ul>
+		</div>
+	</nav>
+</header>
+
+
 <section class='addBodyMain container-fluid'>
 		<form class='newTournamentForm center-text row flex direction-column'>
 			<h1>

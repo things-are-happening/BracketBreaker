@@ -7,31 +7,14 @@
   <link rel="stylesheet" type="text/css" href="./css/matches.css">
   <link rel="stylesheet" type="text/css" href="./css/home.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
-  <header>
-    <nav class="navbar navbar-static">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a ui-sref="dashboard" class="navbar-brand">
-            <strong>[ ]</strong>
-            <!-- <img class="navLogo" src="../../assets/logo.png" alt="" /> -->
-          </a>
-        </div>
-      <ul class="nav navbar-nav navbar-right">
-        <li ng-controller="userCtrl">
-          <a ui-sref='home' ng-click="logout()">Logout</a>
-        </li>
-      </ul>
-      </div>
-    </nav>
-  </header>
-
   <article ui-view="content"></article>
 
-  </body>
+</body>
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.js"></script>

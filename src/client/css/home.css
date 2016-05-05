@@ -1,75 +1,152 @@
-.form-signin
-{
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
+/*!
+ * Start Bootstrap - Landing Page Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body,
+html {
+    width: 100%;
+    height: 100%;
 }
-.form-signin .form-signin-heading, .form-signin .checkbox
-{
-    margin-bottom: 10px;
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
 }
-.form-signin .checkbox
-{
-    font-weight: normal;
-}
-.form-signin .form-control
-{
-    position: relative;
-    font-size: 16px;
-    height: auto;
-    padding: 10px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-.form-signin .form-control:focus
-{
-    z-index: 2;
-}
-.form-signin input[type="text"]
-{
-    margin-bottom: -1px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
-.form-signin input[type="password"]
-{
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-.account-wall
-{
-    margin-top: 20px;
-    padding: 40px 0px 20px 0px;
-    background-color: #fb3640;
-    -moz-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
-    box-shadow: 19px 10px 28px rgba(0, 0, 0, 0.5);
-}
-.login-title
-{
-    color: #555;
+
+.lead {
     font-size: 18px;
     font-weight: 400;
-    display: block;
 }
-.profile-img
-{
-    width: 160px;
-    height: 160px;
-    margin: 0 auto 10px;
-    display: block;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
+
+.intro-header {
+    padding-top: 100px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 100px;
+    text-align: center;
+    color: #f8f8f8;
+    background-image: url('./../assets/baseball.jpeg');
+    background-position: top right;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-.need-help
-{
-    margin-top: 10px;
+
+.intro-message {
+    position: relative;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
-.new-account
-{
-    display: block;
-    margin-top: 10px;
+
+.intro-message > h1 {
+    margin: 0;
+    text-shadow: 4px 4px 5px rgba(0,0,0,0.6);
+    font-size: 5em;
+}
+
+.intro-divider {
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.intro-message > h3 {
+    text-shadow: 4px 4px 5px rgba(0,0,0,0.6);
+}
+
+@media(max-width:767px) {
+    .intro-message {
+        padding-bottom: 15%;
+    }
+
+    .intro-message > h1 {
+        font-size: 3em;
+    }
+
+    ul.intro-social-buttons > li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    ul.intro-social-buttons > li:last-child {
+        margin-bottom: 0;
+    }
+
+    .intro-divider {
+        width: 100%;
+    }
+}
+
+.network-name {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.content-section-a {
+    padding: 160px 0;
+    background-color: #f8f8f8;
+}
+
+.content-section-b {
+    padding: 200px 0;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    background-image: url('./../assets/landingImage.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom right;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+.section-heading-spacer {
+    float: left;
+    width: 200px;
+    border-top: 3px solid #e7e7e7;
+}
+
+@media(max-width:1199px) {
+    ul.banner-social-buttons {
+        float: left;
+        margin-top: 15px;
+    }
+}
+
+@media(max-width:767px) {
+    .banner h2 {
+        margin: 0;
+        text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+        font-size: 3em;
+    }
+
+    ul.banner-social-buttons > li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    ul.banner-social-buttons > li:last-child {
+        margin-bottom: 0;
+    }
+}
+
+footer {
+    padding: 50px 0;
+    background-color: #FB3640;
+    color: #f8f8f8;
+}
+
+p.copyright {
+    margin: 15px 0 0;
+    color: #f8f8f8;
 }
