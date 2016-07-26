@@ -1,9 +1,31 @@
+<header>
+	<nav class="navbar navbar-static">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a ui-sref="dashboard" class="navbar-brand">
+					<img class="navLogo" src="./assets/logo.png"/>
+				</a>
+			</div>
+		<ul class="nav navbar-nav navbar-right">
+			<li ng-controller="userCtrl">
+				<button class="hvr-grow btn btn-default logoutButton" ui-sref='home' ng-click="logout()">Logout</button>
+			</li>
+		</ul>
+		</div>
+	</nav>
+</header>
+
+
 <section class='addBodyMain container-fluid'>
 		<form class='newTournamentForm center-text row flex direction-column'>
 			<h1>
 				<input placeholder='Add Tournament Title' class='addTournamentTitle center-text' onblur='this.placeholder="Add Tournament Title"' onfocus='this.placeholder = ""' ng-model='tournament.name' maxlength='30'/>
 			</h1>
 			<div class='form-group flex space-around'>
+				<div>
+					<label> Owner </label>
+					{{owner}}
+				</div>
 				<div>
 					<label> Start Date </label>
 					<input type='date' ng-model='tournament.start'/>
@@ -122,6 +144,6 @@
 				</form>
 			</div>
 			<br>
-			<button class='btn btn-default' type='submit' ng-click='generateBracket(tournament)'> Lets gooooooo </button>
+			<button class='btn btn-default hvr-grow' type='submit' ng-click='generateBracket(tournament)'> Lets gooooooo </button>
 		</form>
 </section>

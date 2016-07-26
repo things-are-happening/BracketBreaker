@@ -24,10 +24,43 @@ var tournament = new Schema({
 	teamNames:{
 		type: Array
 	},
-	match: {
-		type: Schema.Types.ObjectId,
-		ref: 'Match'
-	},
+	round: {
+		roundOne: [{
+			teamOne: String,
+			teamOneScore: {type: Number, default: 0},
+			teamTwo: String,
+			teamTwoScore: {type: Number, default: 0},
+			winners: [String]
+		}],
+		roundTwo: [{
+			teamOne: String,
+			teamOneScore: {type: Number, default: 0},
+			teamTwo: String,
+			teamTwoScore: {type: Number, default: 0},
+			winners: [String]
+		}],
+		roundThree: [{
+			teamOne: String,
+			teamOneScore: {type: Number, default: 0},
+			teamTwo: String,
+			teamTwoScore: {type: Number, default: 0},
+			winners: [String]
+		}],
+		roundFour: [{
+			teamOne: String,
+			teamOneScore: {type: Number, default: 0},
+			teamTwo: String,
+			teamTwoScore: {type: Number, default: 0},
+			winners: [String]
+		}],
+		roundFive: [{
+			teamOne: String,
+			teamOneScore: {type: Number, default: 0},
+			teamTwo: String,
+			teamTwoScore: {type: Number, default: 0},
+			winners: [String]
+		}]
+},
 	owner: {
 		type: Schema.Types.ObjectId,
 		ref: 'User'

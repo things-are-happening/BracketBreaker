@@ -1,0 +1,144 @@
+<header>
+	<nav class="navbar navbar-static">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a ui-sref="dashboard" class="navbar-brand">
+					<img class="navLogo" src="./assets/logo.png"/>
+				</a>
+			</div>
+		<ul class="nav navbar-nav navbar-right">
+			<li ng-controller="userCtrl">
+				<button class="hvr-grow btn btn-default logoutButton" ui-sref='home' ng-click="logout()">Logout</button>
+			</li>
+		</ul>
+		</div>
+	</nav>
+</header>
+
+<section class='addBodyMain container-fluid'>
+		<form class='newTournamentForm center-text row flex direction-column'>
+			<h1>
+				<input placeholder='Add Tournament Title' class='addTournamentTitle center-text' ng-model='tournament.data.name' maxlength='30'/>
+			</h1>
+			<div class='form-group flex space-around'>
+				<div>
+					<label> Start Date </label>
+					<input type='date' ng-model="tournament.data.start"/>
+				</div>
+				<div>
+					<label> End Date </label>
+					<input type='date' ng-model='tournament.data.end'/>
+				</div>
+			</div>
+			<div class='form-group'>
+				<input placeholder='Tournament Location' class='form-control' onblur='this.placeholder="Tournament Location"' onfocus='this.placeholder = ""' ng-model='tournament.data.location' maxlength='30'/>
+			</div>
+			<div class='form-group'>
+				<select class='form-control center-text' ng-model='tournament.data.type'>
+					<option> Tournament Type </option>
+					<option ng-repeat='type in tournamentType' value='{{type.type}}'> {{type.type}} </option>
+				</select>
+			</div>
+			<div class='form-group'>
+				<select class='form-control' ng-model='tournament.data.sport'>
+					<option> Game Type </option>
+					<option ng-repeat='type in gameType' value='{{type.type}}'> {{type.type}} </option>
+				</select>
+			</div>
+			<div class='form-group'>
+				<select class='form-control' ng-model='tournament.data.teams'>
+					<option> Number of Participants </option>
+					<option ng-repeat='size in tournamentSize'> {{size}} </option>
+				</select>
+			</div>
+			<div ng-if="tournament.data.teams == 2">
+				<form>
+					<label> Enter participants: </label>
+					<input type="text" ng-model="tournament.data.teamNames[0]">
+					<input type="text" ng-model="tournament.data.teamNames[1]">
+				</form>
+			</div>
+			<div ng-if="tournament.data.teams == 4">
+				<form>
+					<label> Enter participants: </label>
+					<input type="text" ng-model="tournament.data.teamNames[0]">
+					<input type="text" ng-model="tournament.data.teamNames[1]">
+					<input type="text" ng-model="tournament.data.teamNames[2]">
+					<input type="text" ng-model="tournament.data.teamNames[3]">
+				</form>
+			</div>
+			<div ng-if="tournament.data.teams == 8">
+				<form>
+					<label> Enter participants: </label>
+					<input type="text" ng-model="tournament.data.teamNames[0]">
+					<input type="text" ng-model="tournament.data.teamNames[1]">
+					<input type="text" ng-model="tournament.data.teamNames[2]">
+					<input type="text" ng-model="tournament.data.teamNames[3]">
+					<input type="text" ng-model="tournament.data.teamNames[4]">
+					<input type="text" ng-model="tournament.data.teamNames[5]">
+					<input type="text" ng-model="tournament.data.teamNames[6]">
+					<input type="text" ng-model="tournament.data.teamNames[7]">
+				</form>
+			</div>
+			<div ng-if="tournament.data.teams == 16">
+				<form>
+					<label> Enter participants: </label>
+					<input type="text" ng-model="tournament.data.teamNames[0]">
+					<input type="text" ng-model="tournament.data.teamNames[1]">
+					<input type="text" ng-model="tournament.data.teamNames[2]">
+					<input type="text" ng-model="tournament.data.teamNames[3]">
+					<input type="text" ng-model="tournament.data.teamNames[4]">
+					<input type="text" ng-model="tournament.data.teamNames[5]">
+					<input type="text" ng-model="tournament.data.teamNames[6]">
+					<input type="text" ng-model="tournament.data.teamNames[7]">
+					<input type="text" ng-model="tournament.data.teamNames[8]">
+					<input type="text" ng-model="tournament.data.teamNames[9]">
+					<input type="text" ng-model="tournament.data.teamNames[10]">
+					<input type="text" ng-model="tournament.data.teamNames[11]">
+					<input type="text" ng-model="tournament.data.teamNames[12]">
+					<input type="text" ng-model="tournament.data.teamNames[13]">
+					<input type="text" ng-model="tournament.data.teamNames[14]">
+					<input type="text" ng-model="tournament.data.teamNames[15]">
+				</form>
+			</div>
+			<div ng-if="tournament.data.teams == 32">
+				<form>
+					<label> Enter participants: </label>
+					<input type="text" ng-model="tournament.data.teamNames[0]">
+					<input type="text" ng-model="tournament.data.teamNames[1]">
+					<input type="text" ng-model="tournament.data.teamNames[2]">
+					<input type="text" ng-model="tournament.data.teamNames[3]">
+					<input type="text" ng-model="tournament.data.teamNames[4]">
+					<input type="text" ng-model="tournament.data.teamNames[5]">
+					<input type="text" ng-model="tournament.data.teamNames[6]">
+					<input type="text" ng-model="tournament.data.teamNames[7]">
+					<input type="text" ng-model="tournament.data.teamNames[8]">
+					<input type="text" ng-model="tournament.data.teamNames[9]">
+					<input type="text" ng-model="tournament.data.teamNames[10]">
+					<input type="text" ng-model="tournament.data.teamNames[11]">
+					<input type="text" ng-model="tournament.data.teamNames[12]">
+					<input type="text" ng-model="tournament.data.teamNames[13]">
+					<input type="text" ng-model="tournament.data.teamNames[14]">
+					<input type="text" ng-model="tournament.data.teamNames[15]">
+					<input type="text" ng-model="tournament.data.teamNames[16]">
+					<input type="text" ng-model="tournament.data.teamNames[17]">
+					<input type="text" ng-model="tournament.data.teamNames[18]">
+					<input type="text" ng-model="tournament.data.teamNames[19]">
+					<input type="text" ng-model="tournament.data.teamNames[20]">
+					<input type="text" ng-model="tournament.data.teamNames[21]">
+					<input type="text" ng-model="tournament.data.teamNames[22]">
+					<input type="text" ng-model="tournament.data.teamNames[23]">
+					<input type="text" ng-model="tournament.data.teamNames[24]">
+					<input type="text" ng-model="tournament.data.teamNames[25]">
+					<input type="text" ng-model="tournament.data.teamNames[26]">
+					<input type="text" ng-model="tournament.data.teamNames[27]">
+					<input type="text" ng-model="tournament.data.teamNames[28]">
+					<input type="text" ng-model="tournament.data.teamNames[29]">
+					<input type="text" ng-model="tournament.data.teamNames[30]">
+					<input type="text" ng-model="tournament.data.teamNames[31]">
+				</form>
+			</div>
+			<br>
+			<button class='btn btn-default form-control hvr-grow' type='submit' ng-click='editTournament(tournament.data._id, tournament.data)'> Lets gooooooo </button>
+		</form>
+</section>

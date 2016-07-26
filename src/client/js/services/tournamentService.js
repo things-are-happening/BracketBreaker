@@ -8,6 +8,7 @@ app.service("tournamentService", function($q, $http){
 		$http.get('/api/tournament').then(function(response){
 			dfd.resolve(response.data);
 		})
+		console.log(dfd.promise)
 		return dfd.promise;
 	}
 
@@ -15,12 +16,15 @@ app.service("tournamentService", function($q, $http){
 		return $http.get('/api/tournament/'+id)
 	}
 
-	// this.getMatches = function(id){
-	// 	var deferred = $q.defer();
-	// 	$http.get("/api/tournament/" + id)
-	// 		.then(function(response){								
-	// 			deferred.resolve(response.data.match);
-	// 		})
-	// 	return deferred.promise;
-	// }
+	this.editTournament = function(id, tournament){
+		return $http.put('/api/tournament/'+id, tournament);
+	}
+
+	this.deleteTournament = function(id){
+  	return $http.delete("/api/tournament/" + id);
+  }
+
+  this.getTournaments = function(){
+  	return $http.get("/api/tournament")
+  }
 })

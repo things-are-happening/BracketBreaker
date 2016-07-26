@@ -1,31 +1,48 @@
+<header>
+	<nav class="navbar navbar-static">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a ui-sref="dashboard" class="navbar-brand">
+					<img class="navLogo" src="./assets/logo.png"/>
+				</a>
+			</div>
+		<ul class="nav navbar-nav navbar-right">
+			<li ng-controller="userCtrl">
+				<button class="btn btn-default logoutButton hvr-grow" ui-sref='home' ng-click="logout()">Logout</button>
+			</li>
+		</ul>
+		</div>
+	</nav>
+</header>
+
 <div class="viewTournamentBody">
 <h1 class='form-group flex space-around'>{{tournament.name}} - {{tournament.location}}</h1>
 <h3 class='form group flex space-around'>{{tournament.type}}</h3>
 	<div class="flex space-between container">
 		<ul class="nav nav-tabs" role="tablist">
 			<li class="bracketTab" id="round1tab" ng-if="tournament.teams >= 32">
-				<a href="#round1" data-toggle="tab" aria-controls="round1" role="tab" target="_self"> Round 1 </a>
+				<a href="#roundFive" data-toggle="tab" aria-controls="roundFive" role="tab" target="_self"> Best of 32 </a>
 			</li>
 			<li class="bracketTab" id="round2tab" ng-if="tournament.teams >= 16">
-				<a href="#round2" data-toggle="tab" aria-controls="round2" role="tab" target="_self"> Round 2 </a>
+				<a href="#roundFour" data-toggle="tab" aria-controls="roundFour" role="tab" target="_self"> Best of 16 </a>
 			</li>
 			<li class="bracketTab" id="round3tab" ng-if="tournament.teams >= 8">
-				<a href="#round3" data-toggle="tab" aria-controls="round3" role="tab" target="_self"> Quarter-finals </a>
+				<a href="#roundThree" data-toggle="tab" aria-controls="roundThree" role="tab" target="_self"> Quarter-finals </a>
 			</li>
 			<li class="bracketTab" id="round4tab" ng-if="tournament.teams >= 4">
-				<a href="#round4" data-toggle="tab" aria-controls="round4" role="tab" target="_self"> Semi-finals </a>
+				<a href="#roundTwo" data-toggle="tab" aria-controls="roundTwo" role="tab" target="_self"> Semi-finals </a>
 			</li>
 			<li class="bracketTab" id="round5tab">
-				<a href="#round5" data-toggle="tab" aria-controls="round5" role="tab" target="_self"> Finals </a>
+				<a href="#roundOne" data-toggle="tab" aria-controls="roundOne" role="tab" target="_self"> Finals </a>
 			</li>
 		</ul>
 	</div>
-</div>
+
 
 <div class="tab-content">
-	<div class="container-fluid view-body tab-pane fade in" id="round1" role="tabpanel" aria-labelledby="round1-tab">
-		<div class="col-md-3 col-sm-6" ng-repeat="match in matches">
-			<a data-toggle='modal' data-target='#testModal'>
+	<div class="container-fluid view-body tab-pane fade in" id="roundFive" role="tabpanel" aria-labelledby="round1-tab">
+		<div class="col-md-3 col-sm-6" ng-repeat="match in tournament.round.roundFive">
+			<a data-toggle='modal' data-target='#matchModalFive'>
 				<div class="match-panel">
 					<div class="team-names">
 
@@ -44,7 +61,7 @@
 						</div>
 
 						<div class="flex space-around match-panel-date">
-							{{match.date}}, {{match.time}}
+							{{match.date}} {{match.time}}
 						</div>
 					</div>
 				</div>
@@ -52,139 +69,249 @@
 		</div>
 	</div>
 
-	<div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+	<div class="container-fluid view-body tab-pane fade in" id="roundFour" role="tabpanel" aria-labelledby="round2-tab">
+		<div class="col-md-3 col-sm-6" ng-repeat="match in tournament.round.roundFour">
+			<a data-toggle="modal" data-target="#matchModalFour">
+				<div class="match-panel">
+					<div class="team-names">
+
+						<div class="flex direction-row space-between">
+							<h4> {{match.teamOne}}: </h4>
+							<div class="scorePosition">
+								<h4> {{match.teamOneScore}} </h4>
+							</div>
+						</div>
+
+						<div class="flex direction-row space-between">
+							<h4> {{match.teamTwo}}: </h4>
+							<div>
+								<h4> {{match.teamTwoScore}} </h4>
+							</div>
+						</div>
+
+						<div class="flex space-around match-panel-date">
+							{{match.date}} {{match.time}}
+						</div>
+
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+
+	<div class="container-fluid view-body tab-pane fade in" id="roundThree" role="tabpanel" aria-labelledby="round3-tab">
+		<div class="col-md-3 col-sm-6" ng-repeat="match in tournament.round.roundThree">
+			<a data-toggle="modal" data-target="#matchModalThree">
+				<div class="match-panel">
+					<div class="team-names">
+
+						<div class="flex direction-row space-between">
+							<h4> {{match.teamOne}}: </h4>
+							<div class="Position">
+								<h4> {{match.teamOneScore}} </h4>
+							</div>
+						</div>
+
+						<div class="flex direction-row space-between">
+							<h4> {{match.teamTwo}}: </h4>
+							<div>
+								<h4> {{match.teamTwoScore}} </h4>
+							</div>
+						</div>
+
+						<div class="flex space-around match-panel-date">
+							{{match.date}} {{match.time}}
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+
+	<div class="container-fluid view-body tab-pane fade in" id="roundTwo" role="tabpanel" aria-labelledby="round4-tab">
+		<div class="col-md-3 col-sm-6" ng-repeat="match in tournament.round.roundTwo">
+			<a data-toggle="modal" data-target="#matchModalTwo">
+				<div class="match-panel">
+					<div class="team-names">
+
+						<div class="flex direction-row space-between">
+							<h4> {{match.teamOne}}: </h4>
+							<div class="Position">
+								<h4> {{match.teamOneScore}} </h4>
+							</div>
+						</div>
+
+						<div class="flex direction-row space-between">
+							<h4> {{match.teamTwo}}: </h4>
+							<div>
+								<h4> {{match.teamTwoScore}} </h4>
+							</div>
+						</div>
+
+						<div class="flex space-around match-panel-date">
+							{{match.date}} {{match.time}}
+						</div>
+
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+
+	<div class="container-fluid view-body tab-pane fade in flex space-around" id="roundOne" role="tabpanel" aria-labelledby="roundOne-tab">
+		<div class="col-md-3 col-sm-6" ng-repeat="match in tournament.round.roundOne">
+			<a data-toggle="modal" data-target="#matchModalOne">
+				<div class="match-panel">
+					<div class="team-names">
+
+						<div class="flex direction-row space-between">
+							<h4> {{match.teamOne}}: </h4>
+							<div class="Position">
+								<h4> {{match.teamOneScore}} </h4>
+							</div>
+						</div>
+
+						<div class="flex direction-row space-between">
+							<h4> {{match.teamTwo}}: </h4>
+							<div>
+								<h4> {{match.teamTwoScore}} </h4>
+							</div>
+						</div>
+
+						<div class="flex space-around match-panel-date">
+							{{match.date}} {{match.time}}
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+
+	<div class="modal fade" id="matchModalOne" tabindex="-1">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="close">
+					<button type="button hvr-grow" class="close" data-dismiss="modal">
 						<span aria-hidden="true"> &times; </span>
 					</button>
 				</div>
-				<div class="modal-body">
-					<p> hello </p>
+				<div class="modal-body flex direction-column" ng-repeat="match in tournament.round.roundOne">
+					<div class="flex direction-row space-between">
+						<label>{{match.teamOne}} score</label>
+						<input type="number" ng-model="match.teamOneScore"></input>
+					</div>
+					<div class="flex direction-row space-between">
+						<label>{{match.teamTwo}} score</label>
+						<input type="number" ng-model="match.teamTwoScore"></input>
+					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button>
+					<button type="button" class="btn btn-default hvr-grow" data-dismiss="modal" ng-click="saveRoundOne(tournament._id)"> Save </button>
+					<button type="button" class="btn btn-default hvr-grow" data-dismiss="modal"> Close </button>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<div class="container-fluid view-body tab-pane fade in" id="round2" role="tabpanel" aria-labelledby="round2-tab">
-		<div class="col-md-3 col-sm-6" ng-repeat="match in matches">
-			<a data-toggle="modal" data-target="#testModal">
-				<div class="match-panel">
-					<div class="team-names">
-
-						<div class="flex direction-row space-between">
-							<h4> {{match.teamOne}}: WHATTTTTT</h4>
-							<div class="scorePosition">
-								<h4> {{match.teamOneScore}} LOOK AT MEEE</h4>
-							</div>
-						</div>
-
-						<div class="flex direction-row space-between">
-							<h4> {{match.teamTwo}}: </h4>
-							<div>
-								<h4> {{match.teamTwoScore}} </h4>
-							</div>
-						</div>
-
-						<div class="flex space-around match-panel-date">
-							{{match.date}}, {{match.time}}
-						</div>
+	<div class="modal fade" id="matchModalTwo" tabindex="-1">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close hvr-grow" data-dismiss="modal">
+						<span aria-hidden="true"> &times; </span>
+					</button>
+				</div>
+				<div class="modal-body flex direction-column" ng-repeat="match in tournament.round.roundTwo">
+					<div class="flex direction-row space-between">
+						<label>{{match.teamOne}} score</label>
+						<input type="number" ng-model="match.teamOneScore"></input>
+					</div>
+					<div class="flex direction-row space-between">
+						<label>{{match.teamTwo}} score</label>
+						<input type="number" ng-model="match.teamTwoScore"></input>
 					</div>
 				</div>
-			</a>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default hvr-grow" data-dismiss="modal" ng-click="saveRoundTwo(tournament._id)"> Save </button>
+					<button type="button" class="btn btn-default hvr-grow" data-dismiss="modal"> Close </button>
+				</div>
+			</div>
 		</div>
 	</div>
-
-	<div class="container-fluid view-body tab-pane fade in" id="round3" role="tabpanel" aria-labelledby="round3-tab">
-		<div class="col-md-3 col-sm-6" ng-repeat="match in matches">
-			<a data-toggle="modal" data-target="#testModal">
-				<div class="match-panel">
-					<div class="team-names">
-
-						<div class="flex direction-row space-between">
-							<h4> {{match.teamOne}}: ASDKJAFKJAFNJK</h4>
-							<div class="Position">
-								<h4> {{match.teamOneScore}} NASDKJLNADKJNAFKJ</h4>
-							</div>
-						</div>
-
-						<div class="flex direction-row space-between">
-							<h4> {{match.teamTwo}}: </h4>
-							<div>
-								<h4> {{match.teamTwoScore}} </h4>
-							</div>
-						</div>
-
-						<div class="flex space-around match-panel-date">
-							{{match.date}}, {{match.time}}
-						</div>
+	<div class="modal fade" id="matchModalThree" tabindex="-1">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close hvr-grow" data-dismiss="modal">
+						<span aria-hidden="true"> &times; </span>
+					</button>
+				</div>
+				<div class="modal-body flex direction-column" ng-repeat="match in tournament.round.roundThree">
+					<div class="flex direction-row space-between">
+						<label>{{match.teamOne}} score</label>
+						<input type="number" ng-model="match.teamOneScore"></input>
+					</div>
+					<div class="flex direction-row space-between">
+						<label>{{match.teamTwo}} score</label>
+						<input type="number" ng-model="match.teamTwoScore"></input>
 					</div>
 				</div>
-			</a>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default hvr-grow" data-dismiss="modal" ng-click="saveRoundThree(tournament._id)"> Save </button>
+					<button type="button" class="btn btn-default hvr-grow" data-dismiss="modal"> Close </button>
+				</div>
+			</div>
 		</div>
 	</div>
-
-	<div class="container-fluid view-body tab-pane fade in" id="round4" role="tabpanel" aria-labelledby="round4-tab">
-		<div class="col-md-3 col-sm-6" ng-repeat="match in matches">
-			<a data-toggle="modal" data-target="#testModal">
-				<div class="match-panel">
-					<div class="team-names">
-
-						<div class="flex direction-row space-between">
-							<h4> {{match.teamOne}}: </h4>
-							<div class="Position">
-								<h4> {{match.teamOneScore}} </h4>
-							</div>
-						</div>
-
-						<div class="flex direction-row space-between">
-							<h4> {{match.teamTwo}}: </h4>
-							<div>
-								<h4> {{match.teamTwoScore}} </h4>
-							</div>
-						</div>
-
-						<div class="flex space-around match-panel-date">
-							{{match.date}}, {{match.time}}
-						</div>
+	<div class="modal fade" id="matchModalFour" tabindex="-1">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close hvr-grow" data-dismiss="modal">
+						<span aria-hidden="true"> &times; </span>
+					</button>
+				</div>
+				<div class="modal-body flex direction-column" ng-repeat="match in tournament.round.roundFour">
+					<div class="flex direction-row space-between">
+						<label>{{match.teamOne}} score</label>
+						<input type="number" ng-model="match.teamOneScore"></input>
+					</div>
+					<div class="flex direction-row space-between">
+						<label>{{match.teamTwo}} score</label>
+						<input type="number" ng-model="match.teamTwoScore"></input>
 					</div>
 				</div>
-			</a>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default hvr-grow" data-dismiss="modal" ng-click="saveRoundFour(tournament._id)"> Save </button>
+					<button type="button" class="btn btn-default hvr-grow" data-dismiss="modal"> Close </button>
+				</div>
+			</div>
 		</div>
 	</div>
-
-	<div class="container-fluid view-body tab-pane fade in" id="round5" role="tabpanel" aria-labelledby="round5-tab">
-		<div class="col-md-3 col-sm-6" ng-repeat="match in matches">
-			<a data-toggle="modal" data-target="#testModal">
-				<div class="match-panel">
-					<div class="team-names">
-
-						<div class="flex direction-row space-between">
-							<h4> {{match.teamOne}}: </h4>
-							<div class="Position">
-								<h4> {{match.teamOneScore}} </h4>
-							</div>
-						</div>
-
-						<div class="flex direction-row space-between">
-							<h4> {{match.teamTwo}}: </h4>
-							<div>
-								<h4> {{match.teamTwoScore}} </h4>
-							</div>
-						</div>
-
-						<div class="flex space-around match-panel-date">
-							{{match.date}}, {{match.time}}
-						</div>
+	<div class="modal fade" id="matchModalFive" tabindex="-1">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close hvr-grow" data-dismiss="modal">
+						<span aria-hidden="true"> &times; </span>
+					</button>
+				</div>
+				<div class="modal-body flex direction-column" ng-repeat="match in tournament.round.roundFive">
+					<div class="flex direction-row space-between">
+						<label>{{match.teamOne}} score</label>
+						<input type="number" ng-model="match.teamOneScore"></input>
+					</div>
+					<div class="flex direction-row space-between">
+						<label>{{match.teamTwo}} score</label>
+						<input type="number" ng-model="match.teamTwoScore"></input>
 					</div>
 				</div>
-			</a>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default hvr-grow" data-dismiss="modal" ng-click="saveRoundFive(tournament._id)"> Save </button>
+					<button type="button" class="btn btn-default hvr-grow" data-dismiss="modal"> Close </button>
+				</div>
+			</div>
 		</div>
 	</div>
-
 
 </div>
